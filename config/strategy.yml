@@ -1,0 +1,35 @@
+# Shorting Scalping Strategy Configuration
+
+## Risk Parameters
+MAX_POSITION_SIZE: 0.1          # Position size as % of account
+STOP_LOSS_PERCENT: 2.0          # Stop loss distance in %
+TAKE_PROFIT_PERCENT: 1.5        # Take profit target in %
+MAX_DAILY_LOSS_PERCENT: 5.0     # Max daily loss before pause
+MAX_CONCURRENT_POSITIONS: 3     # Max open short positions
+
+## Entry Signals
+VOLATILITY_THRESHOLD: 2.5       # ATR-based volatility signal
+RSI_OVERBOUGHT: 70              # RSI threshold for shorts
+MACD_SIGNAL_STRENGTH: 0.8       # MACD signal crossover strength
+VOLUME_MULTIPLIER: 1.5          # Volume requirement vs average
+
+## Exit Conditions
+PROFIT_TARGET_PERCENT: 1.5      # Profit taking level
+STOP_LOSS_PERCENT: 2.0          # Stop loss level
+MAX_HOLD_TIME_MINUTES: 15       # Max time in trade
+TRAILING_STOP_PERCENT: 0.5      # Trailing stop if enabled
+
+## Market Conditions
+SYMBOLS:
+  - BTC/USD
+  - ETH/USD
+  - SOL/USD
+
+TIMEFRAMES:
+  - 1m                           # Scalping timeframe
+  - 5m                           # Confirmation
+
+## Execution Rules
+TRADING_HOURS: "09:30-16:00"    # Market hours (EST)
+MIN_SPREAD_PERCENT: 0.01         # Minimum bid-ask spread
+SLIPPAGE_TOLERANCE_PERCENT: 0.2  # Max acceptable slippage

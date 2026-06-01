@@ -1,0 +1,36 @@
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# API Keys & Credentials
+*.key
+*.pem
+credentials.json
+secrets.json
+
+# Logs
+logs/
+*.log
+
+# Cache & Temp Files
+.cache/
+*.tmp
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Memory - Local notes only (shared memory goes to git)
+memory/local/
+memory/*.local.md
