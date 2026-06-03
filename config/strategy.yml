@@ -1,35 +1,33 @@
-# Shorting Scalping Strategy Configuration
+# ============================================================
+# Scalping Strategy Configuration   (COLD MEMORY — you own this)
+# ------------------------------------------------------------
+# Single source of truth for every numeric parameter.
+# The agent READS this each run and must never write to it.
+# Fill in the blank values below. Leave a key empty until you
+# have decided it — do not invent placeholder numbers.
+# ============================================================
 
-## Risk Parameters
-MAX_POSITION_SIZE: 0.1          # Position size as % of account
-STOP_LOSS_PERCENT: 2.0          # Stop loss distance in %
-TAKE_PROFIT_PERCENT: 1.5        # Take profit target in %
-MAX_DAILY_LOSS_PERCENT: 5.0     # Max daily loss before pause
-MAX_CONCURRENT_POSITIONS: 3     # Max open short positions
+# --- Risk Parameters ---
+max_position_size_pct:        # position size as % of account
+stop_loss_pct:                # stop-loss distance in %
+take_profit_pct:              # take-profit target in %
+max_daily_loss_pct:           # daily loss that halts trading
+max_concurrent_positions:     # max simultaneous open positions
+min_risk_reward:              # minimum acceptable reward:risk (e.g. 1.0)
 
-## Entry Signals
-VOLATILITY_THRESHOLD: 2.5       # ATR-based volatility signal
-RSI_OVERBOUGHT: 70              # RSI threshold for shorts
-MACD_SIGNAL_STRENGTH: 0.8       # MACD signal crossover strength
-VOLUME_MULTIPLIER: 1.5          # Volume requirement vs average
+# --- Entry Signals ---
+# Define your entry conditions / indicator thresholds here.
+# (left blank intentionally — your strategy, not yet written)
 
-## Exit Conditions
-PROFIT_TARGET_PERCENT: 1.5      # Profit taking level
-STOP_LOSS_PERCENT: 2.0          # Stop loss level
-MAX_HOLD_TIME_MINUTES: 15       # Max time in trade
-TRAILING_STOP_PERCENT: 0.5      # Trailing stop if enabled
+# --- Exit Conditions ---
+max_hold_time_minutes:        # force-exit after this long in a trade
+trailing_stop_pct:            # trailing-stop distance (optional)
 
-## Market Conditions
-SYMBOLS:
-  - BTC/USD
-  - ETH/USD
-  - SOL/USD
+# --- Universe ---
+symbols: []                   # e.g. [BTC/USD, ETH/USD, SOL/USD]
+timeframes: []                # e.g. [1m, 5m]
 
-TIMEFRAMES:
-  - 1m                           # Scalping timeframe
-  - 5m                           # Confirmation
-
-## Execution Rules
-TRADING_HOURS: "09:30-16:00"    # Market hours (EST)
-MIN_SPREAD_PERCENT: 0.01         # Minimum bid-ask spread
-SLIPPAGE_TOLERANCE_PERCENT: 0.2  # Max acceptable slippage
+# --- Execution ---
+# trading_hours:              # crypto trades 24/7 — only set a window if you want one
+min_spread_pct:               # minimum acceptable bid-ask spread
+slippage_tolerance_pct:       # max acceptable slippage
