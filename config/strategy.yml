@@ -1,33 +1,81 @@
 # ============================================================
-# Scalping Strategy Configuration   (COLD MEMORY — you own this)
+# STRATEGY: Low-float small-cap parabolic short ("first red day")
+# Taught by JesseG. Reported success rate ~80% when ALL criteria are met.
 # ------------------------------------------------------------
-# Single source of truth for every numeric parameter.
-# The agent READS this each run and must never write to it.
-# Fill in the blank values below. Leave a key empty until you
-# have decided it — do not invent placeholder numbers.
+# COLD MEMORY — human-owned. The agent READS this every run, never writes it.
+# These numbers are the single source of truth. config/rules.md explains HOW
+# to apply them (judgment, procedure, do's & don'ts). Read both before trading.
 # ============================================================
 
-# --- Risk Parameters ---
-max_position_size_pct:        # position size as % of account
-stop_loss_pct:                # stop-loss distance in %
-take_profit_pct:              # take-profit target in %
-max_daily_loss_pct:           # daily loss that halts trading
-max_concurrent_positions:     # max simultaneous open positions
-min_risk_reward:              # minimum acceptable reward:risk (e.g. 1.0)
+meta:
+  name: "Low-float parabolic short (first red day)"
+  asset_class: us_equities          # small-cap STOCKS (this is NOT crypto)
+  direction: short_only             # long trades may be added later, with experience
+  broker: TradeZero
+  reported_win_rate_pct: 80
+  status: live_small_account
 
-# --- Entry Signals ---
-# Define your entry conditions / indicator thresholds here.
-# (left blank intentionally — your strategy, not yet written)
+# --- SELECTION CRITERIA (ALL must be true before any trade) ---
+criteria:
+  min_prior_day_gain_pct: 100          # up >=100% the day (or days) before
+  soft_floor_prior_day_gain_pct: 90    # discretionary: a lone ~90% standout may qualify
+  min_volume_to_float_ratio: 10        # day volume >= ~10x float (minimum; higher is better)
+  soft_floor_volume_to_float_ratio: 7  # 7-8x occasionally usable, but prefer >=10x
+  min_share_price_usd: 0.50            # TradeZero cannot short under $0.50
+  require_red_on_day: true             # must show a clear momentum shift (red on the day)
+  require_parabola_arc: true           # chart shows an "n"/inverted-U rolling over into the close
+  require_resistance_level: true       # a prior high-volume resistance must exist (anchors the stop)
+  # If it already FLATTENED in pre-market (no arc, already corrected) -> SKIP.
+  # If there is NO resistance level -> SKIP (no safe risk; wait for it to peak and form one).
 
-# --- Exit Conditions ---
-max_hold_time_minutes:        # force-exit after this long in a trade
-trailing_stop_pct:            # trailing-stop distance (optional)
+# --- TIMING (US Eastern Time) ---
+timing:
+  timezone: America/New_York
+  no_trade_before: "09:29"
+  trade_window: "09:30-11:30"          # only trade these hours (most profitable)
+  impatience_times: ["09:50", "10:00", "10:30"]  # reversals cluster here; ~15m before to ~50m after
+  low_volume_window: "12:00-15:00"     # demand slows; avoid
+  max_trades_per_day: 1                # after covering at the impatience fall, done for the day
 
-# --- Universe ---
-symbols: []                   # e.g. [BTC/USD, ETH/USD, SOL/USD]
-timeframes: []                # e.g. [1m, 5m]
+# --- ENTRY ---
+entry:
+  when: "short just before the 09:30 open, anticipating the drop"
+  only_short_top_of_failed_push: true  # if it pops after the open, short the TOP once the up-move ends
+  if_drops_immediately: "enter as fast as possible (no pre-drop pop is coming)"
+  if_unclear_trend: "wait until a trend is identifiable"
+  use_half_then_add_on_ascend: false   # JesseG suggests it; user found it fails -> DO NOT do this
 
-# --- Execution ---
-# trading_hours:              # crypto trades 24/7 — only set a window if you want one
-min_spread_pct:               # minimum acceptable bid-ask spread
-slippage_tolerance_pct:       # max acceptable slippage
+# --- STOP / RISK ---
+stop:
+  type: resistance_level
+  placement: second_resistance         # set the cover-ceiling at the 2nd resistance, not the 1st
+  fixed_pct: null                      # NOT a fixed percentage; the resistance defines the risk
+  exit_on_market_halt: true            # any halt/hold -> exit (momentum lost, behavior unknown)
+  note: "subject to refinement by the agent with experience, as long as it increases profit"
+
+# --- EXIT / TAKE PROFIT ---
+exit:
+  method: discretionary_at_impatience_fall   # not a fixed rule; cover at the morning's lowest point
+  no_lower_cover_limit: true           # don't cap the downside; capture the full move
+  if_missed_impatience_fall: "cover anyway"
+  tell_more_downside: "if it drops then stalls BEFORE an impatience time, it is coiling to drop further at the impatience time -> wait"
+
+# --- POSITION SIZING ---
+sizing:
+  account_fraction: 0.5                # use ~half the account (broker buying-power limited)
+  share_lot_size: 100                  # shares are borrowed in lots of 100
+  only_when_all_criteria_met: true     # size up only because the criteria give the ~80% edge
+  rationale: "TradeZero gives ~half of capital as usable short buying power; borrow only what you can use (avoid extra borrow fees)"
+
+# --- CAPITAL MANAGEMENT ---
+capital:
+  profit_payout_pct: 50                # pay yourself 50% of profits
+  profit_reinvest_pct: 50              # reinvest 50% to grow capital
+  withdraw_principal_after_double: true # once capital doubles, withdraw original principal; trade only earned money
+  trade_only_unattached_money: true
+
+# --- DATA SOURCES (pre-market workflow) ---
+data_sources:
+  gainers: "finviz.com"                # find biggest prior-day gainers — CHECK BEFORE 09:30 (resets after open)
+  float: ["knowyourfloat.com", "finance.yahoo.com (Summary>Statistics>Share Statistics>Float)", "finviz.com"]
+  chart: "finance.yahoo.com"           # confirm the parabola/'n' rolling over at the close

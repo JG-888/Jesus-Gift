@@ -1,8 +1,14 @@
 # Jesus-Gift Trading Agent — Long-Term Memory
 
-This repository is the long-term memory for the Jesus-Gift scalping agent. The
-agent accesses it via the GitHub API on every routine run: it reads its config
+This repository is the long-term memory for the Jesus-Gift trading agent. The
+agent accesses it via the GitHub API on every routine run: it reads its strategy
 and past memory before trading, and writes results back afterward.
+
+**Strategy:** low-float small-cap **parabolic short** — short stocks that spiked
+100%+ on huge volume relative to float and are rolling over on their first red
+day, covering at the morning "impatience" flush (the "JesseG" strategy). Traded
+short-only on TradeZero, 09:30–11:30 ET. Full details in
+[`config/rules.md`](./config/rules.md) and [`config/strategy.yml`](./config/strategy.yml).
 
 The read/write contract that keeps this memory from degrading is in
 [`SCHEMA.md`](./SCHEMA.md) — read that first.
@@ -11,8 +17,8 @@ The read/write contract that keeps this memory from degrading is in
 
 ```
 config/          <- COLD memory (you own; agent only reads)
-  strategy.yml     numeric parameters - single source of truth
-  rules.md         protocol & philosophy (no raw numbers)
+  strategy.yml     numeric parameters & criteria - single source of truth
+  rules.md         the playbook: how to apply the strategy
 memory/          <- HOT memory (agent owns; written every run)
   trades.jsonl     append-only ledger, one closed trade per line
   insights.jsonl   append-only learnings, one per line
@@ -24,7 +30,7 @@ SCHEMA.md        <- the read/write contract the agent follows
 ## How the agent uses it
 
 1. Fetch latest `config/*` and `memory/*` from GitHub.
-2. Trade according to config + rules.
+2. Run the pre-market scan and trade according to the criteria + rules.
 3. Append closed trades to `trades.jsonl` and learnings to `insights.jsonl`.
 4. Recompute and overwrite `performance.json`.
 5. Commit back to the repository.
