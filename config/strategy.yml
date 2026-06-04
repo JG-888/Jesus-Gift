@@ -35,6 +35,13 @@ criteria:
   #   (a few cents profit), rarely a loss, after sitting the full session.
   # If there is NO resistance level -> SKIP (no safe risk; wait for it to peak and form one).
 
+# --- FLOAT / VOLUME ESTIMATION (when sources disagree) ---
+float_estimation:
+  method: average_across_sources       # knowyourfloat lists SEVERAL float figures; finviz adds one more
+  exclude_outliers: true               # drop any figure far from the cluster, then average the rest
+  outlier_example: "if 3 of ~4 figures agree within ~5M and one is ~30M off, drop the outlier"
+  applies_to: ["float", "volume"]      # use the same averaging-minus-outliers for volume
+
 # --- TIMING (US Eastern Time) ---
 timing:
   timezone: America/New_York

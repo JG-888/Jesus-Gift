@@ -21,8 +21,11 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 ## 3. Pre-market workflow (every trading day, before 09:30 ET)
 1. **Find gainers on finviz.com — BEFORE the open.** finviz resets after 09:30 and stops showing
    the prior day, so check it pre-market. List stocks up 100%+ the day before.
-2. **Check float on knowyourfloat.com** (finviz and Yahoo also show it). You want day volume
-   ≥ ~10× the float (more is better).
+2. **Check float on knowyourfloat.com** (finviz and Yahoo also show it). knowyourfloat lists *several*
+   float figures from different sources — **use the average across them (plus finviz), but drop outliers.**
+   E.g., if 3 of ~4 figures cluster within ~5M and one diverges by tens of millions (say ~30M apart),
+   exclude that one and average the rest. Apply the same averaging-minus-outliers to volume. You want
+   day volume ≥ ~10× this float (more is better).
 3. **Check the chart on finance.yahoo.com — use the 5-day ("5D") view.** It shows the prior day, how it
    closed, and the current pre-market in one frame. Look for the parabolic arc ("n" / inverted-U) that
    was already rolling over into the close — that rollover is the momentum shift that signals a
