@@ -37,10 +37,10 @@ timing:
   session_guideline: "09:30-11:30"     # GUIDELINE only (suits a human with limited hours), NOT a hard
                                        # limit. The agent has no time cap and may work past 11:30 once
                                        # it has learned profitable improvements. Early on, wrap up ~11:30.
-  impatience_times: ["09:50", "10:00", "10:30"]  # morning flushes
-  cover_target: last_impatience_flush  # aim to cover at the LAST flush (~10:30) = the lowest point
+  impatience_times: ["09:50", "10:00", "10:30"]  # morning flushes -- APPROXIMATE ("around" these times)
+  impatience_approx_variance_min: 15   # the whole cluster can shift ~5-15 min EITHER side (before OR after)
+  cover_target: last_impatience_flush  # aim to cover at the LAST flush (around 10:30) = the lowest point
   last_impatience_time: "10:30"        # day-end anchor: when this last flush comes, cover & end the day
-  last_impatience_max_delay_min: 15    # the last flush can slip ~15 min -> ~10:45
   low_volume_window: "12:00-15:00"     # demand slows
   max_trades_per_day: 1                # one short per day, then done
 
@@ -65,7 +65,7 @@ stop:
 
 # --- EXIT / TAKE PROFIT ---
 exit:
-  method: cover_at_last_impatience_flush   # cover at the LAST flush (~10:30, up to ~10:45) = lowest point
+  method: cover_at_last_impatience_flush   # cover at the LAST flush (around 10:30) = lowest point
   hold_through_early_flushes: true     # the 09:50 and 10:00 flushes are CONFIRMATION the setup works;
                                        # do NOT cover there -- keep holding for the last flush
   no_lower_cover_limit: true           # don't cap the downside; capture the full move

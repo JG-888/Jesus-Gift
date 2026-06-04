@@ -64,8 +64,8 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - These levels may be refined with experience, as long as the change reliably increases profit.
 
 ## 7. Exit / taking profit — the "impatience fall"
-- There are up to three morning flushes: **~9:50, ~10:00, and ~10:30 ET** (the last can slip ~15 min,
-  to ~10:45). They are approximate, not fixed.
+- There are up to three morning flushes: **~9:50, ~10:00, and ~10:30 ET**. These are **approximate** —
+  the whole cluster can land ~5–15 min **before _or_ after** those times ("around" them); it varies by day.
 - **Aim to cover at the LAST flush (~10:30), which is typically the lowest point = maximum profit.**
 - **Treat the 9:50 and 10:00 flushes as confirmation, not exit cues.** The owner usually does **not**
   cover there — a drop at 9:50, and again at 10:00, is a *good* sign the setup is working; keep
@@ -74,7 +74,7 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - **Tell for more downside:** if the stock drops then stalls **before** a flush, it is coiling to push
   **further** down at the flush — wait for that lower point.
 - Do **not** set a lower cover limit — let it run to the bottom and capture the full move.
-- When the **last flush (~10:30, up to ~10:45)** arrives, **cover any still-open short and end the day.**
+- When the **last flush (around 10:30)** arrives, **cover any still-open short and end the day.**
 - If you **miss** the bottom, cover anyway. Once you cover, you are **done for the day** — no second position.
 
 ## 8. Position sizing
@@ -103,7 +103,7 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - The **09:30–11:30 session is a guideline, not a limit.** It suits a human with limited hours; the
   agent has no time cap and may work past 11:30 once it has learned profitable improvements. Early on,
   lean toward wrapping up around 11:30. The real day-end anchor is the **last impatience flush
-  (~10:30, up to ~10:45)** — when it comes, cover any open short and end the day.
+  (around 10:30)** — when it comes, cover any open short and end the day.
 - A **halt is not a forced exit** (see §6): JesseG trades through them; early on, strongly consider
   banking profit on a halt since it tends to kill momentum.
 
@@ -127,8 +127,9 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 
 ## 13. Glossary
 - **Low-hanging fruit** — JesseG's term for the high-probability short: a parabolic gainer correcting on its first red day.
-- **Impatience fall** — a morning flush where holders give up (~9:50 / 10:00 / 10:30 ET). The **last**
-  one (~10:30, up to ~10:45) is typically the lowest point and our cover target; earlier flushes are confirmation.
+- **Impatience fall** — a morning flush where holders give up (~9:50 / 10:00 / 10:30 ET, approximate —
+  ~5–15 min either side). The **last** one (around 10:30) is typically the lowest point and our cover
+  target; earlier flushes are confirmation.
 - **Black swan** — an irrational, extreme move (≈ +1000%+).
 - **Sympathy stocks** — names that move because a related/leading stock is moving, not on their own news.
 
