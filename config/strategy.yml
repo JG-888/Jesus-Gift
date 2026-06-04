@@ -68,6 +68,9 @@ exit:
   method: cover_at_last_impatience_flush   # cover at the LAST flush (around 10:30) = lowest point
   hold_through_early_flushes: true     # the 09:50 and 10:00 flushes are CONFIRMATION the setup works;
                                        # do NOT cover there -- keep holding for the last flush
+  last_flush_may_delay: true           # the LAST flush can run later than the usual variance; the tell
+                                       # it is still coming (just delayed) is that the first two flushes
+                                       # (~09:50 & ~10:00) already happened -> keep waiting, don't cover early
   no_lower_cover_limit: true           # don't cap the downside; capture the full move
   if_missed_the_bottom: "cover anyway, then done for the day"
   tell_more_downside: "if it drops then stalls BEFORE a flush, it is coiling to drop further at the flush -> wait"

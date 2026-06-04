@@ -70,6 +70,10 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - **Treat the 9:50 and 10:00 flushes as confirmation, not exit cues.** The owner usually does **not**
   cover there — a drop at 9:50, and again at 10:00, is a *good* sign the setup is working; keep
   holding for the last flush.
+- **If the last flush runs late, keep waiting — it can delay beyond the usual variance.** The tell that
+  it is still coming (just delayed) is that **the first two flushes (~9:50 and ~10:00) already happened.**
+  If you saw those two, the last one is coming — wait for it. Having no time cap, the agent can wait it
+  out rather than cover early.
 - Behavior at a flush: if the trend is up it squeezes down; if down it squeezes up.
 - **Tell for more downside:** if the stock drops then stalls **before** a flush, it is coiling to push
   **further** down at the flush — wait for that lower point.
