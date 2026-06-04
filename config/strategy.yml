@@ -15,7 +15,7 @@ meta:
   reported_win_rate_pct: 80
   status: live_small_account
 
-# --- SELECTION CRITERIA (ALL must be true before any trade) ---
+# --- SELECTION CRITERIA (require_* items must all be true; prefer_/soft_ items are signals) ---
 criteria:
   min_prior_day_gain_pct: 100          # up >=100% the day (or days) before
   soft_floor_prior_day_gain_pct: 90    # discretionary: a lone ~90% standout may qualify
@@ -23,19 +23,26 @@ criteria:
   soft_floor_volume_to_float_ratio: 7  # 7-8x occasionally usable, but prefer >=10x
   min_share_price_usd: 0.50            # TradeZero cannot short under $0.50
   require_red_on_day: true             # must show a clear momentum shift (red on the day)
-  require_parabola_arc: true           # chart shows an "n"/inverted-U rolling over into the close
   require_resistance_level: true       # a prior high-volume resistance must exist (anchors the stop)
-  # If it already FLATTENED in pre-market (no arc, already corrected) -> SKIP.
+  prefer_parabola_arc: true            # an "n"/inverted-U rolling over into the close is the STRONGEST setup
+  # A chart already FLATTENED/corrected in pre-market is NOT an auto-skip: it LOWERS the odds
+  #   (move may be partly spent) -> be more attentive. Owner's experience: near-breakeven days
+  #   (a few cents profit), rarely a loss, after sitting the full session.
   # If there is NO resistance level -> SKIP (no safe risk; wait for it to peak and form one).
 
 # --- TIMING (US Eastern Time) ---
 timing:
   timezone: America/New_York
-  no_trade_before: "09:29"
-  trade_window: "09:30-11:30"          # only trade these hours (most profitable)
-  impatience_times: ["09:50", "10:00", "10:30"]  # reversals cluster here; ~15m before to ~50m after
-  low_volume_window: "12:00-15:00"     # demand slows; avoid
-  max_trades_per_day: 1                # after covering at the impatience fall, done for the day
+  entry_no_earlier_than: "09:29"       # short at/just before the open; never before 09:29
+  session_guideline: "09:30-11:30"     # GUIDELINE only (suits a human with limited hours), NOT a hard
+                                       # limit. The agent has no time cap and may work past 11:30 once
+                                       # it has learned profitable improvements. Early on, wrap up ~11:30.
+  impatience_times: ["09:50", "10:00", "10:30"]  # morning flushes
+  cover_target: last_impatience_flush  # aim to cover at the LAST flush (~10:30) = the lowest point
+  last_impatience_time: "10:30"        # day-end anchor: when this last flush comes, cover & end the day
+  last_impatience_max_delay_min: 15    # the last flush can slip ~15 min -> ~10:45
+  low_volume_window: "12:00-15:00"     # demand slows
+  max_trades_per_day: 1                # one short per day, then done
 
 # --- ENTRY ---
 entry:
@@ -50,21 +57,26 @@ stop:
   type: resistance_level
   placement: second_resistance         # set the cover-ceiling at the 2nd resistance, not the 1st
   fixed_pct: null                      # NOT a fixed percentage; the resistance defines the risk
-  exit_on_market_halt: true            # any halt/hold -> exit (momentum lost, behavior unknown)
+  on_market_halt: not_an_auto_exit     # halts are NOT a forced exit -- JesseG trades through them.
+                                       # Early on (no agent experience yet), a halt tends to kill
+                                       # momentum, so STRONGLY CONSIDER banking any profit already made,
+                                       # even before an impatience flush. Refine with experience.
   note: "subject to refinement by the agent with experience, as long as it increases profit"
 
 # --- EXIT / TAKE PROFIT ---
 exit:
-  method: discretionary_at_impatience_fall   # not a fixed rule; cover at the morning's lowest point
+  method: cover_at_last_impatience_flush   # cover at the LAST flush (~10:30, up to ~10:45) = lowest point
+  hold_through_early_flushes: true     # the 09:50 and 10:00 flushes are CONFIRMATION the setup works;
+                                       # do NOT cover there -- keep holding for the last flush
   no_lower_cover_limit: true           # don't cap the downside; capture the full move
-  if_missed_impatience_fall: "cover anyway"
-  tell_more_downside: "if it drops then stalls BEFORE an impatience time, it is coiling to drop further at the impatience time -> wait"
+  if_missed_the_bottom: "cover anyway, then done for the day"
+  tell_more_downside: "if it drops then stalls BEFORE a flush, it is coiling to drop further at the flush -> wait"
 
 # --- POSITION SIZING ---
 sizing:
   account_fraction: 0.5                # use ~half the account (broker buying-power limited)
   share_lot_size: 100                  # shares are borrowed in lots of 100
-  only_when_all_criteria_met: true     # size up only because the criteria give the ~80% edge
+  only_when_required_criteria_met: true # size up only because the criteria give the ~80% edge
   rationale: "TradeZero gives ~half of capital as usable short buying power; borrow only what you can use (avoid extra borrow fees)"
 
 # --- CAPITAL MANAGEMENT ---

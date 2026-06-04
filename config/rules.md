@@ -26,17 +26,20 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 3. **Check the chart on finance.yahoo.com.** Look for the parabolic arc ("n" / inverted-U) that
    was already rolling over into the close — that rollover is the momentum shift that signals a
    continued drop at the open. Confirm float again under Summary → Statistics → Share Statistics → Float.
-4. Keep only names that satisfy **every** criterion in §4 and have a clear resistance level for risk.
+4. Keep only names that satisfy the required criteria in §4 and have a clear resistance level for risk.
 
-## 4. Selection criteria — ALL required (exact numbers in `strategy.yml`)
+## 4. Selection criteria — required unless marked _(preferred)_ (exact numbers in `strategy.yml`)
 - [ ] Up 100%+ the prior day (a lone ~90% standout can be a discretionary exception).
 - [ ] Day volume ≥ ~10× float (7–8× occasionally usable; prefer ≥10×).
 - [ ] Price above $0.50 (TradeZero cannot short cheaper).
 - [ ] Turned **red on the day** with a clear momentum shift.
-- [ ] Chart shows a parabolic arc **rolling over** — NOT already flattened/corrected in pre-market
-      (if it's already flat, skip; the move is spent).
 - [ ] A clear **resistance level** exists from a prior high-volume day. **No resistance → do not
       short** (no safe risk; wait for it to peak and form one).
+- [ ] _(Preferred, not required)_ Chart shows a parabolic arc **rolling over** into the close.
+      A chart that has **already flattened/corrected in pre-market does NOT disqualify the trade** —
+      it just **lowers the odds** (the move may be partly spent), so be **more attentive**. In the
+      owner's experience these became near-breakeven days (a few cents profit, rarely a loss) after
+      sitting the full session.
 
 ## 5. Entry
 - Enter the short **just before the 09:30 ET open** (never before 09:29), anticipating the drop.
@@ -54,40 +57,55 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - Set the cover-ceiling (stop) at the **second resistance level, not the first.** Price often pokes
   the first resistance but rarely reaches the second.
 - Risk is defined by **the resistance level, not a fixed percentage.**
-- **Exit immediately on any market halt/hold** — momentum is lost and the behavior is unknown.
+- **A market halt/hold is NOT a forced exit.** JesseG has traded through halts profitably, so don't
+  treat one as an automatic stop. But a halt tends to **kill momentum**, so **early on — before the
+  agent has built its own experience — strongly consider banking any profit already made on a halt,
+  even if it is before an impatience flush.** Refine this with experience.
 - These levels may be refined with experience, as long as the change reliably increases profit.
 
 ## 7. Exit / taking profit — the "impatience fall"
-- Cover at the **impatience flush**: the morning's lowest point and your maximum profit.
-- Impatience times cluster around **9:50, 10:00, 10:30 ET** — approximate, not fixed (anywhere from
-  ~15 min before to ~50 min after).
-- Behavior at an impatience time: if the trend is up it squeezes down; if down it squeezes up.
-- **Tell for more downside:** if the stock drops then stalls **before** an impatience time, it is
-  coiling to push **further** down at the impatience time — wait for that lower point.
+- There are up to three morning flushes: **~9:50, ~10:00, and ~10:30 ET** (the last can slip ~15 min,
+  to ~10:45). They are approximate, not fixed.
+- **Aim to cover at the LAST flush (~10:30), which is typically the lowest point = maximum profit.**
+- **Treat the 9:50 and 10:00 flushes as confirmation, not exit cues.** The owner usually does **not**
+  cover there — a drop at 9:50, and again at 10:00, is a *good* sign the setup is working; keep
+  holding for the last flush.
+- Behavior at a flush: if the trend is up it squeezes down; if down it squeezes up.
+- **Tell for more downside:** if the stock drops then stalls **before** a flush, it is coiling to push
+  **further** down at the flush — wait for that lower point.
 - Do **not** set a lower cover limit — let it run to the bottom and capture the full move.
-- If you **miss** the impatience fall, cover anyway.
-- After you cover, you are **done for the day.** Do not open another position.
+- When the **last flush (~10:30, up to ~10:45)** arrives, **cover any still-open short and end the day.**
+- If you **miss** the bottom, cover anyway. Once you cover, you are **done for the day** — no second position.
 
 ## 8. Position sizing
 - The account is small for now → use about **half the account** (TradeZero's usable short
   buying power is ~half of capital).
 - Shares are borrowed in **lots of 100**; borrowing costs a small fee, so borrow only what you can
   actually use — don't over-borrow.
-- Size up like this **only when every criterion is met** — the size is justified by the strategy's
-  ~80% edge, nothing else.
+- Size up like this **only when the required criteria are met** — the size is justified by the
+  strategy's ~80% edge, nothing else.
 
 ## 9. Capital management
 - Pay yourself **50%** of profits; reinvest **50%** to grow the account.
 - Once the account **doubles, withdraw your original principal** and trade only with earned money.
 - Trade only with money you have **no attachment to.**
 
-## 10. Hard rules (non-negotiable)
-- **Never** place a trade unless **every** criterion is met.
-- **Never** trade before 09:29; only trade the **09:30–11:30** window.
-- **One** trade per day — stop after the impatience fall.
-- **Never** revenge-trade to win back a loss from a mistake or something unknown.
+## 10. Hard rules vs. guidelines
+
+**Hard rules (non-negotiable):**
+- **Never** place a trade unless the required criteria (see §4) are met.
+- **Never** enter earlier than ~09:29 (the pre-open short).
 - **Always** keep a resistance level as your risk; never short without one.
-- **Always** exit on a halt.
+- **One** trade per day — once you cover, you are done.
+- **Never** revenge-trade to win back a loss from a mistake or something unknown.
+
+**Guidelines (NOT hard — soften and refine with experience):**
+- The **09:30–11:30 session is a guideline, not a limit.** It suits a human with limited hours; the
+  agent has no time cap and may work past 11:30 once it has learned profitable improvements. Early on,
+  lean toward wrapping up around 11:30. The real day-end anchor is the **last impatience flush
+  (~10:30, up to ~10:45)** — when it comes, cover any open short and end the day.
+- A **halt is not a forced exit** (see §6): JesseG trades through them; early on, strongly consider
+  banking profit on a halt since it tends to kill momentum.
 
 ## 11. Governance & evolution
 - "Be what you want the Automatic to be before you make it automatic" — master the discipline
@@ -109,7 +127,8 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 
 ## 13. Glossary
 - **Low-hanging fruit** — JesseG's term for the high-probability short: a parabolic gainer correcting on its first red day.
-- **Impatience fall** — the morning flush (~9:50 / 10:00 / 10:30 ET) where holders give up; the lowest point and our cover target.
+- **Impatience fall** — a morning flush where holders give up (~9:50 / 10:00 / 10:30 ET). The **last**
+  one (~10:30, up to ~10:45) is typically the lowest point and our cover target; earlier flushes are confirmation.
 - **Black swan** — an irrational, extreme move (≈ +1000%+).
 - **Sympathy stocks** — names that move because a related/leading stock is moving, not on their own news.
 
