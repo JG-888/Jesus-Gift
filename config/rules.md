@@ -46,6 +46,9 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - If there's **no clear trend**: wait until one is identifiable.
 - Do **NOT** use JesseG's "short half now, add half at the top of the first ascend" method — it
   has not worked in practice here. Wait for the top instead.
+- **Expect a small pop:** the stock often ticks **up a little right after 9:30 before dropping**
+  (~2 of 3 setups in the owner's experience). This is normal — do **not** cover into the pop; hold
+  for the impatience fall (§7). Covering early on the pop is the main mistake to avoid.
 
 ## 6. Stop / risk
 - Set the cover-ceiling (stop) at the **second resistance level, not the first.** Price often pokes
@@ -104,5 +107,13 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - **BQ:** ~3M float; 49M vol / +234% Mon 9/29; dropped at 9:30 on 9/30.
 - **YCBD:** ~3M float; 198M vol / +127% Mon 9/29; dropped ~20% on 9/30.
 
-_Note: a video with 3 additional examples exists in the source note but had not synced to this
-machine when these files were written; fold it in later if it adds anything new._
+## 13. Glossary
+- **Low-hanging fruit** — JesseG's term for the high-probability short: a parabolic gainer correcting on its first red day.
+- **Impatience fall** — the morning flush (~9:50 / 10:00 / 10:30 ET) where holders give up; the lowest point and our cover target.
+- **Black swan** — an irrational, extreme move (≈ +1000%+).
+- **Sympathy stocks** — names that move because a related/leading stock is moving, not on their own news.
+
+_Provenance: built from the "JesseG TRADING" note (text + 10 chart images) plus a screen-recording of
+the owner's chat with JesseG (reviewed 2026-06-04). That chat confirmed the criteria working 3 times —
+2 of which popped up before dropping — and the discipline of waiting for the impatience fall rather than
+covering early._
