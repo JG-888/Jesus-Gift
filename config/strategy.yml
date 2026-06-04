@@ -15,6 +15,11 @@ meta:
   reported_win_rate_pct: 80
   status: live_small_account
 
+# --- TIMEFRAMES ---
+timeframes:
+  selection: "daily"      # pre-market scan (finviz/Yahoo): prior-day 100%+ gain, volume/float, parabola
+  execution: "1m"         # intraday entry/timing/exit are read on the 1-MINUTE chart in TradeZero
+
 # --- SELECTION CRITERIA (require_* items must all be true; prefer_/soft_ items are signals) ---
 criteria:
   min_prior_day_gain_pct: 100          # up >=100% the day (or days) before
@@ -93,4 +98,5 @@ capital:
 data_sources:
   gainers: "finviz.com"                # find biggest prior-day gainers — CHECK BEFORE 09:30 (resets after open)
   float: ["knowyourfloat.com", "finance.yahoo.com (Summary>Statistics>Share Statistics>Float)", "finviz.com"]
-  chart: "finance.yahoo.com"           # confirm the parabola/'n' rolling over at the close
+  chart: "finance.yahoo.com (use the 5-DAY '5D' view)"  # 5D shows the prior day, its close, and current
+                                                        # pre-market in one frame; confirm parabola rolling over

@@ -23,10 +23,15 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
    the prior day, so check it pre-market. List stocks up 100%+ the day before.
 2. **Check float on knowyourfloat.com** (finviz and Yahoo also show it). You want day volume
    ≥ ~10× the float (more is better).
-3. **Check the chart on finance.yahoo.com.** Look for the parabolic arc ("n" / inverted-U) that
+3. **Check the chart on finance.yahoo.com — use the 5-day ("5D") view.** It shows the prior day, how it
+   closed, and the current pre-market in one frame. Look for the parabolic arc ("n" / inverted-U) that
    was already rolling over into the close — that rollover is the momentum shift that signals a
    continued drop at the open. Confirm float again under Summary → Statistics → Share Statistics → Float.
 4. Keep only names that satisfy the required criteria in §4 and have a clear resistance level for risk.
+
+> **Timeframes:** selection (steps 1–4) is done on **daily** charts (and Yahoo's 5-day view). Once you're
+> trading, all intraday timing — entry, the small pop, the impatience flushes, and the cover — is read on
+> the **1-minute chart in TradeZero.**
 
 ## 4. Selection criteria — required unless marked _(preferred)_ (exact numbers in `strategy.yml`)
 - [ ] Up 100%+ the prior day (a lone ~90% standout can be a discretionary exception).
