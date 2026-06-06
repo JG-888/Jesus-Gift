@@ -41,7 +41,7 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - [ ] Up 100%+ the prior day (a lone ~90% standout can be a discretionary exception).
 - [ ] Day volume ≥ ~10× float (7–8× occasionally usable; prefer ≥10×).
 - [ ] Price above $0.50 (TradeZero cannot short cheaper).
-- [ ] **Rule 3 — a clear change of momentum (the price is correcting / rolling over).** This does **NOT**
+- [ ] **A clear change of momentum (the price is correcting / rolling over).** This does **NOT**
       require the stock to be *literally red*. It is satisfied by **either** form:
       - **(a) Red on the day** — the parabola's full correction already happened during the **prior
         market day**, so it opens **red vs. yesterday** and keeps dropping (a bit less intensely). The
@@ -150,7 +150,7 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - **YCBD:** ~3M float; 198M vol / +127% Mon 9/29; dropped ~20% on 9/30.
 
 ## 13. Glossary
-- **Low-hanging fruit** — the **clearer** form of rule 3: the parabola's correction completed during the prior market day, so the stock opens **red** and keeps dropping. (A not-yet-red stock still mid-downfall also meets rule 3 — see §4 — but isn't called low-hanging fruit.)
+- **Low-hanging fruit** — the **clearer** form of the momentum-shift criterion: the parabola's correction completed during the prior market day, so the stock opens **red** and keeps dropping. (A not-yet-red stock still mid-downfall also satisfies that criterion — see §4 — but isn't called low-hanging fruit.)
 - **Impatience fall** — a morning flush where holders give up (~9:50 / 10:00 / 10:30 ET, approximate —
   ~5–15 min either side). The **last** one (around 10:30) is typically the lowest point and our cover
   target; earlier flushes are confirmation.
