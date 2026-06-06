@@ -7,7 +7,8 @@
 
 ## 1. The idea in one paragraph
 We short small-cap stocks that have just had a violent parabolic run-up — 100%+ in a day on
-enormous volume relative to their float — at the moment they roll over and turn red. After an
+enormous volume relative to their float — at the moment they roll over and momentum clearly shifts down — classically as they turn red, though it
+also counts while the stock is still mid-drop (§4). After an
 extreme run, the first red day tends to keep falling: a price correction JesseG calls the
 "low-hanging fruit." We enter just before the open and cover at the morning "impatience" flush,
 which is the lowest point of the morning.
@@ -40,7 +41,15 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - [ ] Up 100%+ the prior day (a lone ~90% standout can be a discretionary exception).
 - [ ] Day volume ≥ ~10× float (7–8× occasionally usable; prefer ≥10×).
 - [ ] Price above $0.50 (TradeZero cannot short cheaper).
-- [ ] Turned **red on the day** with a clear momentum shift.
+- [ ] **Rule 3 — a clear change of momentum (the price is correcting / rolling over).** This does **NOT**
+      require the stock to be *literally red*. It is satisfied by **either** form:
+      - **(a) Red on the day** — the parabola's full correction already happened during the **prior
+        market day**, so it opens **red vs. yesterday** and keeps dropping (a bit less intensely). The
+        clearer case — the true **"low-hanging fruit."**
+      - **(b) Mid-downfall, not yet red** — an **unfinished** parabola still completing its down curve,
+        continuing to drop **into / after the 09:30 open** (this was **STI**). Momentum has clearly
+        shifted and the price is correcting, so it **qualifies** even though it isn't red yet (not called
+        "low-hanging fruit"). **Do not reject a candidate just because it isn't literally red.**
 - [ ] A clear **resistance level** exists from a prior high-volume day. **No resistance → do not
       short** (no safe risk; wait for it to peak and form one).
 - [ ] _(Preferred, not required)_ Chart shows a parabolic arc **rolling over** into the close.
@@ -48,6 +57,12 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
       it just **lowers the odds** (the move may be partly spent), so be **more attentive**. In the
       owner's experience these became near-breakeven days (a few cents profit, rarely a loss) after
       sitting the full session.
+
+> **⚠️ Real lesson (Friday):** two names met the criteria — **STI** and **INDP**. STI was **not yet red**
+> but mid-downfall (an unfinished parabola still correcting into the open), so it **met rule 3** and was
+> the better trade (~80% of max gain). The mistake was **skipping STI for not being literally red** —
+> rule 3 is a *momentum shift*, not the literal color. (Taking INDP with reduced size, when the agent
+> believed it was the only qualifier, was itself the right call — keep that behavior.)
 
 ## 5. Entry
 - Enter the short **just before the 09:30 ET open** (never before 09:29), anticipating the drop.
@@ -138,7 +153,7 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - **YCBD:** ~3M float; 198M vol / +127% Mon 9/29; dropped ~20% on 9/30.
 
 ## 13. Glossary
-- **Low-hanging fruit** — JesseG's term for the high-probability short: a parabolic gainer correcting on its first red day.
+- **Low-hanging fruit** — the **clearer** form of rule 3: the parabola's correction completed during the prior market day, so the stock opens **red** and keeps dropping. (A not-yet-red stock still mid-downfall also meets rule 3 — see §4 — but isn't called low-hanging fruit.)
 - **Impatience fall** — a morning flush where holders give up (~9:50 / 10:00 / 10:30 ET, approximate —
   ~5–15 min either side). The **last** one (around 10:30) is typically the lowest point and our cover
   target; earlier flushes are confirmation.

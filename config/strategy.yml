@@ -27,7 +27,12 @@ criteria:
   min_volume_to_float_ratio: 10        # day volume >= ~10x float (minimum; higher is better)
   soft_floor_volume_to_float_ratio: 7  # 7-8x occasionally usable, but prefer >=10x
   min_share_price_usd: 0.50            # TradeZero cannot short under $0.50
-  require_red_on_day: true             # must show a clear momentum shift (red on the day)
+  require_momentum_shift_down: true    # RULE 3: a CLEAR change of momentum (price correcting / rolling
+                                       # over). NOT limited to literally "red" -- see rule3_forms below.
+                                       # Do NOT reject a candidate just because it is not literally red.
+  rule3_forms:
+    red_on_day: "parabola FULLY corrected during the PRIOR market day -> opens RED vs yesterday and keeps dropping (the clearer 'low-hanging fruit' case)"
+    mid_downfall_not_yet_red: "UNFINISHED parabola still completing its down curve, continuing to drop into/after the 09:30 open; not red yet but momentum clearly shifted -> VALID (not called 'low-hanging fruit')"
   require_resistance_level: true       # a prior high-volume resistance must exist (anchors the stop)
   prefer_parabola_arc: true            # an "n"/inverted-U rolling over into the close is the STRONGEST setup
   # A chart already FLATTENED/corrected in pre-market is NOT an auto-skip: it LOWERS the odds
