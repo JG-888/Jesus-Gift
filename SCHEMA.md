@@ -46,7 +46,15 @@ Recompute from `trades.jsonl` each run. Keys: `schema_version`, `updated_at`,
 3. Append each closed trade to `trades.jsonl`.
 4. Append any new learnings to `insights.jsonl`.
 5. Recompute and overwrite `performance.json`.
-6. Commit. One commit per run is fine — append-only files don't cause merge conflicts.
+6. **Commit and push directly to the `main` branch** — do **NOT** push to a feature branch or open a
+   pull request. The next run reads `main`, so anything left on an unmerged branch is invisible to it
+   and the memory stops accumulating. One commit per run is fine; append-only files don't cause merge
+   conflicts, so committing straight to `main` is safe.
+
+> **⚠️ Critical — read from and write to `main`.** `main` is the single source of truth the agent reads
+> every run. Always pull `main` at the start and push back to `main` at the end. If the runtime can only
+> push to a branch, that branch **must** be merged into `main` before the next run (e.g. auto-merge),
+> otherwise the agent loses its accumulated memory.
 
 ## Credentials
 Secrets live **only** in `.env`, which is gitignored and must never be committed.
