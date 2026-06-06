@@ -96,13 +96,28 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - **If the last flush runs late, keep waiting — it can delay beyond the usual variance.** The tell that
   it is still coming (just delayed) is that **the first two flushes (~9:50 and ~10:00) already happened.**
   If you saw those two, the last one is coming — wait for it. Having no time cap, the agent can wait it
-  out rather than cover early.
+  out rather than cover early. _(⚠️ Documented exception: this tell **failed on INDP**, a positive-
+  fundamental-catalyst name — see the field notes below.)_
 - Behavior at a flush: if the trend is up it squeezes down; if down it squeezes up.
 - **Tell for more downside:** if the stock drops then stalls **before** a flush, it is coiling to push
   **further** down at the flush — wait for that lower point.
 - Do **not** set a lower cover limit — let it run to the bottom and capture the full move.
 - When the **last flush (around 10:30)** arrives, **cover any still-open short and end the day.**
 - If you **miss** the bottom, cover anyway. Once you cover, you are **done for the day** — no second position.
+
+> **🤖 Field notes — agent's INDP session, 2026-06-05 (see `memory/insights.jsonl`; n=1, confirm with more data):**
+> - **Lowered-odds setups (the move pre-ran in pre-market):** holding full size for the last flush can
+>   reverse on you — INDP gave ~**+$12k at the 10:00 flush** (low 2.76), then squeezed back through its
+>   day high into a **-$6.2k loss.** On these, consider **banking most profit into the early flushes
+>   (~9:50/10:00)** rather than waiting for ~10:30.
+> - **The "first two flushes ⇒ last is coming" tell can FAIL** on names spiking on a **positive
+>   fundamental catalyst** (e.g. INDP's Phase-1 data): real buyers defend and reverse, unlike pure
+>   low-float dilution/momentum pumps. Weight the **catalyst type** in selection.
+> - **Day-high invalidation:** when the hard high-volume stop is **far above** entry because the drop
+>   pre-ran (INDP: 4.75 stop vs 3.15 entry), reclaiming the **intraday day high** breaks the first-red-day
+>   thesis — a tighter invalidation there capped the loss (−$6.2k vs ~−$50k at the far stop).
+>
+> _These are the agent's own observations from one trade — promote to firm rules only if they hold up._
 
 ## 8. Position sizing
 - The account is small for now → use about **half the account** (TradeZero's usable short
