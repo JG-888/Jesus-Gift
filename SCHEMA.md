@@ -21,6 +21,10 @@ Core rules:
 - **Never** edit or reformat existing lines in an append-only file. Only add new lines at the end.
 - `performance.json` is **derived** from `trades.jsonl` — recompute it, never hand-edit.
 - `config/` is the single source of truth for numbers. Everything else references it; nothing duplicates values.
+- **Cold memory is principle-only.** `config/rules.md` (plain English) and `config/strategy.yml` hold the
+  strategy's *principles and parameters* — keep them lean. Per-trade examples, field notes, and session
+  observations go in `memory/insights.jsonl` (hot), **not** in `rules.md`. Promote a hot-memory insight
+  to a cold rule only once it has proven out over multiple trades.
 
 ## `memory/trades.jsonl` — append-only, one JSON object per line
 Append exactly one line per **closed** trade (all trades are shorts for now):

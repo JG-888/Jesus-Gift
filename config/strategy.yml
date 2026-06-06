@@ -73,6 +73,10 @@ entry:
 stop:
   type: resistance_level
   placement: second_resistance         # set the cover-ceiling at the 2nd resistance, not the 1st
+  trail_down: true                     # TRAIL the cover-stop DOWN to the next lower support/resistance
+                                       # as the stock falls -- every trade; cuts risk + locks in profit.
+                                       # When the initial high-vol stop is far above entry, drop to a
+                                       # nearer level (e.g. the intraday day high) for a tighter invalidation.
   fixed_pct: null                      # NOT a fixed percentage; the resistance defines the risk
   on_market_halt: not_an_auto_exit     # halts are NOT a forced exit -- JesseG trades through them.
                                        # Early on (no agent experience yet), a halt tends to kill
