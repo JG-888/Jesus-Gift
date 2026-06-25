@@ -63,10 +63,11 @@ timing:
 
 # --- ENTRY ---
 entry:
-  when: "short just before the 09:30 open, anticipating the drop"
-  only_short_top_of_failed_push: true  # if it pops after the open, short the TOP once the up-move ends
-  if_drops_immediately: "enter as fast as possible (no pre-drop pop is coming)"
-  if_unclear_trend: "wait until a trend is identifiable"
+  default_entry_time: "09:29"          # ALWAYS short at exactly 09:29 ET (before the open), EVERY day
+  rule: "short at 09:29 ET anticipating the drop -- this is the DEFAULT; do not sit out waiting"
+  wait_is_exception: true              # waiting is RARE, never the routine; when in doubt, enter at 09:29
+  exception_pop_first: "ONLY if you read a pop coming: hold off at 09:29 and short the TOP of the post-open push once the up-move ends (never short mid-up-move). 'unclear trend -> wait' is part of THIS exception, not a routine gate."
+  if_waited_and_drops_immediately: "get in as fast as possible"
   use_half_then_add_on_ascend: false   # JesseG suggests it; user found it fails -> DO NOT do this
 
 # --- STOP / RISK ---

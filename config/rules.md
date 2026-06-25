@@ -59,16 +59,21 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
       sitting the full session.
 
 ## 5. Entry
-- Enter the short **just before the 09:30 ET open** (never before 09:29), anticipating the drop.
-- If it looks like it will **pop up first**: wait, let it run, and short the **top** once the
-  up-move ends. Do **not** short into the middle of an up-move.
-- If it **drops immediately**: get in as fast as possible (no pre-drop pop is coming).
-- If there's **no clear trend**: wait until one is identifiable.
+- **Default rule — short at exactly 09:29 ET, every day, before the open.** Put the position on at
+  the 09:29 minute, anticipating the drop. This is what you do **unless** a specific, experience-based
+  read tells you otherwise (below). **Do not sit out waiting for confirmation** — waiting is the rare
+  exception, never the routine; **when in doubt, take the 09:29 entry.**
+- **Experience-based exception (rare, NOT the default):** only when you have a specific read that the
+  stock will **pop up first** instead of dropping, hold off at 09:29 and short the **top** of that
+  post-open push once the up-move ends (never short into the middle of an up-move). The "wait until a
+  clear trend shows" judgment is part of *this same* exception — it applies only when you're genuinely
+  unsure it will drop immediately, **not** as a routine gate. If you do wait and it drops immediately,
+  get in as fast as possible.
 - Do **NOT** use JesseG's "short half now, add half at the top of the first ascend" method — it
-  has not worked in practice here. Wait for the top instead.
-- **Expect a small pop:** the stock often ticks **up a little right after 9:30 before dropping**
-  (~2 of 3 setups in the owner's experience). This is normal — do **not** cover into the pop; hold
-  for the impatience fall (§7). Covering early on the pop is the main mistake to avoid.
+  has not worked in practice here.
+- **Expect a small pop:** once short, the stock often ticks **up a little right after 9:30 before
+  dropping** (~2 of 3 setups in the owner's experience). This is normal — do **not** cover into the
+  pop; hold for the impatience fall (§7). Covering early on the pop is the main mistake to avoid.
 
 ## 6. Stop / risk
 - Set the cover-ceiling (stop) at the **second resistance level, not the first.** Price often pokes
