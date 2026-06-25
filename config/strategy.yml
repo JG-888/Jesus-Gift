@@ -88,7 +88,7 @@ stop:
 # --- EXIT / TAKE PROFIT ---
 exit:
   # (a) by-principle lower limit = your reasonable profit target
-  by_principle_lower_limit: "a MENTAL target, NOT a platform limit order: the lowest place you reasonably expect THIS share to reach (from its OWN chart + experience) -- usually low but still ABOVE the pre-spike base. TAKE PROFIT when price reaches/dips below it AND stalls there WITHOUT reversing (be reasonable, not greedy -- Ecclesiastes 5:10; don't wait for a lower low that may never come)."
+  by_principle_lower_limit: "a MENTAL target, NOT a platform limit order: the lowest place you reasonably expect THIS share to reach (from its OWN chart -- the Yahoo Finance 5-day '5D' general view, same as §3 selection -- plus experience) -- usually low but still ABOVE the pre-spike base. TAKE PROFIT when price reaches/dips below it AND stalls there WITHOUT reversing (be reasonable, not greedy -- Ecclesiastes 5:10; don't wait for a lower low that may never come)."
   stall_is_not_reversal: true          # price can pause and still continue same-direction; judge by experience + close attention
   no_platform_lower_limit: true        # NEVER place a platform lower-limit order; keep the by-principle limit in your head
   hold_through_early_flushes: true     # a 09:50/10:00 flush that has NOT reached your by-principle low is just confirmation/coiling -> keep holding; take profit only once the by-principle low is reached and stalls

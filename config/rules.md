@@ -99,7 +99,8 @@ There are **two** distinct ways out — keep them separate.
   Never place a platform lower-limit order — keeping it mental keeps you in control and never caps the move.
 - Set it at the **lowest place you reasonably expect _this_ share to reach**, judged from **its own chart**
   and your experience with it — usually low, but still **above the pre-spike base** (its price before the
-  spike that built the mountain/parabola).
+  spike that built the mountain/parabola). Read it from the share's **own** chart on the **Yahoo Finance
+  5-day ("5D") general view** (the same chart used for selection in §3) — never another share's chart.
 - It is the point where the share **stops dropping but does not reverse.** When price reaches (or dips
   below) your by-principle low **and stalls there without reversing, take the profit** — be *reasonable,
   not greedy* (Ecclesiastes 5:10); don't hold out for a theoretical lower low that may never come.
