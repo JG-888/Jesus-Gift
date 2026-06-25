@@ -56,10 +56,10 @@ timing:
                                        # it has learned profitable improvements. Early on, wrap up ~11:30.
   impatience_times: ["09:50", "10:00", "10:30"]  # morning flushes -- APPROXIMATE ("around" these times)
   impatience_approx_variance_min: 15   # the whole cluster can shift ~5-15 min EITHER side (before OR after)
-  cover_target: last_impatience_flush  # aim to cover at the LAST flush (around 10:30) = the lowest point
+  cover_target: by_principle_lower_limit  # take REASONABLE profit at your by-principle low (see exit); the final exit is the last-impatience reversal
   last_impatience_time: "10:30"        # day-end anchor: when this last flush comes, cover & end the day
   low_volume_window: "12:00-15:00"     # demand slows
-  max_trades_per_day: 1                # one short per day, then done
+  max_trades_per_day: 1                # one trade per day; by-principle profit-taking + re-entry on the SAME move still counts as one (see exit.reentry_after_by_principle_profit)
 
 # --- ENTRY ---
 entry:
@@ -87,15 +87,18 @@ stop:
 
 # --- EXIT / TAKE PROFIT ---
 exit:
-  method: cover_at_last_impatience_flush   # cover at the LAST flush (around 10:30) = lowest point
-  hold_through_early_flushes: true     # the 09:50 and 10:00 flushes are CONFIRMATION the setup works;
-                                       # do NOT cover there -- keep holding for the last flush
-  last_flush_may_delay: true           # the LAST flush can run later than the usual variance; the tell
-                                       # it is still coming (just delayed) is that the first two flushes
-                                       # (~09:50 & ~10:00) already happened -> keep waiting, don't cover early
-  no_lower_cover_limit: true           # don't cap the downside; capture the full move
-  if_missed_the_bottom: "cover anyway, then done for the day"
-  tell_more_downside: "if it drops then stalls BEFORE a flush, it is coiling to drop further at the flush -> wait"
+  # (a) by-principle lower limit = your reasonable profit target
+  by_principle_lower_limit: "a MENTAL target, NOT a platform limit order: the lowest place you reasonably expect THIS share to reach (from its OWN chart + experience) -- usually low but still ABOVE the pre-spike base. TAKE PROFIT when price reaches/dips below it AND stalls there WITHOUT reversing (be reasonable, not greedy -- Ecclesiastes 5:10; don't wait for a lower low that may never come)."
+  stall_is_not_reversal: true          # price can pause and still continue same-direction; judge by experience + close attention
+  no_platform_lower_limit: true        # NEVER place a platform lower-limit order; keep the by-principle limit in your head
+  hold_through_early_flushes: true     # a 09:50/10:00 flush that has NOT reached your by-principle low is just confirmation/coiling -> keep holding; take profit only once the by-principle low is reached and stalls
+  last_flush_may_delay: true           # the LAST flush can run late; if the first two (~09:50 & ~10:00) happened, the last is usually still coming
+  # (b) exit time = final exit
+  exit_time: "the LAST hour of impatience -- when the share has FINISHED dropping and is CLEARLY reversing; if still short, cover (this is the final exit)."
+  # re-entry: by-principle profit-taking does NOT end the day
+  reentry_after_by_principle_profit: "after by-principle profit the day is NOT over -- if it bounces and you catch the TOP of that small up-move before it falls again, short again. Valid while impatience hours remain. Still ONE trade per day."
+  if_missed_the_bottom: "cover anyway"
+  tell_more_downside: "if it drops then stalls BEFORE reaching your by-principle low, it is usually coiling to drop further -> stay in"
 
 # --- POSITION SIZING ---
 sizing:

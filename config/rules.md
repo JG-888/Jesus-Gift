@@ -90,23 +90,39 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
   even if it is before an impatience flush.** Refine this with experience.
 - These levels may be refined with experience, as long as the change reliably increases profit.
 
-## 7. Exit / taking profit — the "impatience fall"
-- There are up to three morning flushes: **~9:50, ~10:00, and ~10:30 ET**. These are **approximate** —
-  the whole cluster can land ~5–15 min **before _or_ after** those times ("around" them); it varies by day.
-- **Aim to cover at the LAST flush (~10:30), which is typically the lowest point = maximum profit.**
-- **Treat the 9:50 and 10:00 flushes as confirmation, not exit cues.** The owner usually does **not**
-  cover there — a drop at 9:50, and again at 10:00, is a *good* sign the setup is working; keep
-  holding for the last flush.
-- **If the last flush runs late, keep waiting — it can delay beyond the usual variance.** The tell that
-  it is still coming (just delayed) is that **the first two flushes (~9:50 and ~10:00) already happened.**
-  If you saw those two, the last one is usually still coming — wait for it (this tell is a strong guide,
-  not absolute). Having no time cap, the agent can wait it out rather than cover early.
+## 7. Exit / taking profit
+
+There are **two** distinct ways out — keep them separate.
+
+**(a) The by-principle lower limit — your reasonable profit target.**
+- Hold a lower limit **"by principle"**: a price kept **in your head, NOT a limit order on the platform.**
+  Never place a platform lower-limit order — keeping it mental keeps you in control and never caps the move.
+- Set it at the **lowest place you reasonably expect _this_ share to reach**, judged from **its own chart**
+  and your experience with it — usually low, but still **above the pre-spike base** (its price before the
+  spike that built the mountain/parabola).
+- It is the point where the share **stops dropping but does not reverse.** When price reaches (or dips
+  below) your by-principle low **and stalls there without reversing, take the profit** — be *reasonable,
+  not greedy* (Ecclesiastes 5:10); don't hold out for a theoretical lower low that may never come.
+- **A stall is not a reversal.** Price can pause (stop falling, or rising) for a while and still continue
+  the same way — tell a stall from a true reversal by experience and close attention.
+- An early flush (~9:50 / 10:00) that has **not** reached your by-principle low is usually just
+  confirmation / coiling for **more** downside — keep holding; only take profit once the by-principle low
+  is reached and stalls.
+
+**(b) The exit time — the last hour of impatience.**
+- The morning flushes cluster at **~9:50 / 10:00 / 10:30 ET** (approximate, ~5–15 min either side; the
+  last can run late — if the first two happened, the last is usually still coming).
+- The **exit time** is the **last hour of impatience**, when the share has **finished dropping and is
+  clearly starting to reverse.** If you are still short then, cover — that is the **final** exit.
 - Behavior at a flush: if the trend is up it squeezes down; if down it squeezes up.
-- **Tell for more downside:** if the stock drops then stalls **before** a flush, it is coiling to push
-  **further** down at the flush — wait for that lower point.
-- Do **not** set a lower cover limit — let it run to the bottom and capture the full move.
-- When the **last flush (around 10:30)** arrives, **cover any still-open short and end the day.**
-- If you **miss** the bottom, cover anyway. Once you cover, you are **done for the day** — no second position.
+
+**Re-entry — taking by-principle profit does NOT end the day.**
+- After you take profit at your by-principle low, the day is **not over.** If the share then bounces up a
+  little and you catch the **top of that small up-move before it falls again,** you may **short it again** —
+  there are more chances to fall **as long as not all the impatience hours have passed.**
+- This still honors **one trade per day**: you exited only to take *reasonable* profit (Ecclesiastes 5:10),
+  not to close out the day. The day truly ends at the last-impatience reversal (b).
+- If you **miss** your by-principle low or the last-flush bottom, cover anyway.
 
 ## 8. Position sizing
 - The account is small for now → use about **half the account** (TradeZero's usable short
@@ -127,8 +143,11 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - **Never** place a trade unless the required criteria (see §4) are met.
 - **Never** enter earlier than ~09:29 (the pre-open short).
 - **Always** keep a resistance level as your risk; never short without one.
-- **One** trade per day — once you cover, you are done.
-- **Never** revenge-trade to win back a loss from a mistake or something unknown.
+- **One** trade per day. Taking *reasonable* profit at your by-principle low and re-entering the same
+  name's continued fall while impatience hours remain (§7) still counts as one trade; the day ends at
+  the last-impatience reversal.
+- **Never trade to "repair a wrong"** — don't chase back a loss from a mistake or the unknown with an
+  impulsive trade; it isn't a qualifying setup.
 
 **Guidelines (NOT hard — soften and refine with experience):**
 - The **09:30–11:30 session is a guideline, not a limit.** It suits a human with limited hours; the
