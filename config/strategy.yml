@@ -63,8 +63,8 @@ timing:
 
 # --- ENTRY ---
 entry:
-  default_entry_time: "09:29"          # ALWAYS short at exactly 09:29 ET (before the open), EVERY day
-  rule: "short at 09:29 ET anticipating the drop -- this is the DEFAULT; do not sit out waiting"
+  default_entry_time: "09:29"          # once a setup QUALIFIES (criteria above), short at exactly 09:29 ET
+  rule: "when a setup qualifies, short at 09:29 ET (the DEFAULT) -- do not sit out waiting. If NO setup qualifies, stand down; this governs entry TIMING, not selection."
   wait_is_exception: true              # waiting is RARE, never the routine; when in doubt, enter at 09:29
   exception_pop_first: "ONLY if you read a pop coming: hold off at 09:29 and short the TOP of the post-open push once the up-move ends (never short mid-up-move). 'unclear trend -> wait' is part of THIS exception, not a routine gate."
   if_waited_and_drops_immediately: "get in as fast as possible"

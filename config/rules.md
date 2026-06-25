@@ -59,10 +59,12 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
       sitting the full session.
 
 ## 5. Entry
-- **Default rule — short at exactly 09:29 ET, every day, before the open.** Put the position on at
-  the 09:29 minute, anticipating the drop. This is what you do **unless** a specific, experience-based
-  read tells you otherwise (below). **Do not sit out waiting for confirmation** — waiting is the rare
-  exception, never the routine; **when in doubt, take the 09:29 entry.**
+- **Default rule — once a setup qualifies (§4), short it at exactly 09:29 ET, before the open.** Put
+  the position on at the 09:29 minute, anticipating the drop — every qualifying day. This is what you
+  do **unless** a specific, experience-based read says otherwise (below). **Do not sit out waiting for
+  confirmation** — waiting is the rare exception, never the routine; **when in doubt, take the 09:29
+  entry.** This governs entry **timing only**: if **no** setup qualifies per §4, still stand down —
+  never force a trade just to be in.
 - **Experience-based exception (rare, NOT the default):** only when you have a specific read that the
   stock will **pop up first** instead of dropping, hold off at 09:29 and short the **top** of that
   post-open push once the up-move ends (never short into the middle of an up-move). The "wait until a
