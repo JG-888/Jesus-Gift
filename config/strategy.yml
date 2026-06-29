@@ -10,7 +10,7 @@
 meta:
   name: "Low-float parabolic short (first red day)"
   asset_class: us_equities          # small-cap STOCKS (this is NOT crypto)
-  direction: short_only             # long trades may be added later, with experience
+  direction: short_primary_plus_long  # shorts are PRIMARY; spring-bounce LONGs now active (see spring_bounce)
   broker: TradeZero
   reported_win_rate_pct: 80
   status: live_small_account
@@ -99,6 +99,15 @@ exit:
   reentry_after_by_principle_profit: "after by-principle profit the day is NOT over -- if it bounces and you catch the TOP of that small up-move before it falls again, short again. Valid while impatience hours remain. Still ONE trade per day."
   if_missed_the_bottom: "cover anyway"
   tell_more_downside: "if it drops then stalls BEFORE reaching your by-principle low, it is usually coiling to drop further -> stay in"
+
+# --- SPRING BOUNCE (optional LONG on the rebound) ---
+spring_bounce:
+  what: "after the short's by-principle low is reached and REVERSES up (released elastic energy), trade that up-leg LONG (buy)."
+  strongest_when: "the low lands AT an impatience hour (e.g. ~10:00) -> a window up to the NEXT impatience hour (~10:30) for the bounce to run before it flips back down."
+  long_entry_signal: "3-5 up-candles (3-5 min) on the 1-MINUTE chart, with price still BETWEEN the low and the original market-open price -> buy."
+  high_limit_by_principle: "the ORIGINAL market-open price (mirror of the by-principle LOW). SELL when reached or just surpassed. MENTAL target, NOT a platform limit order; read from the share's OWN 5-day chart."
+  then: "the next impatience hour reverses it down -> re-short the new down-leg. Morning oscillates down -> bounce-up -> down between impatience hours until the last one."
+  counts_as_one_trade_per_day: true    # managing the same name's morning move
 
 # --- POSITION SIZING ---
 sizing:

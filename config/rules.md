@@ -90,7 +90,7 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
   even if it is before an impatience flush.** Refine this with experience.
 - These levels may be refined with experience, as long as the change reliably increases profit.
 
-## 7. Exit / taking profit
+## 7. Taking profit, re-entry & the spring bounce (long side)
 
 There are **two** distinct ways out — keep them separate.
 
@@ -124,6 +124,21 @@ There are **two** distinct ways out — keep them separate.
 - This still honors **one trade per day**: you exited only to take *reasonable* profit (Ecclesiastes 5:10),
   not to close out the day. The day truly ends at the last-impatience reversal (b).
 - If you **miss** your by-principle low or the last-flush bottom, cover anyway.
+
+**The spring bounce — an optional LONG on the rebound (the long side).**
+- After the short reaches its by-principle low and **reverses up**, that rebound is the **spring bounce** —
+  released elastic energy after the drop. You may trade that up-leg **long (buy).**
+- **Strongest when the low lands at an impatience hour** (e.g. ~10:00): you then get a window — up to the
+  **next** impatience hour (~10:30) — for the bounce to run before that next hour flips it back down.
+- **Long entry signal:** the reversal shows as **3–5 up-candles (3–5 min) on the 1-minute chart**, with
+  price still **between the low and the original market-open price** → buy.
+- **Long exit — the "high-limit-by-principle"** (the mirror of the by-principle low): the **original
+  market-open price.** Sell when it is **reached or just surpassed.**
+- After the long, the **next impatience hour** typically reverses it back down → **re-short** the new
+  down-leg. The morning oscillates: down → bounce-up → down, between impatience hours, until the last one.
+- Same discipline as the short: the high-limit is **mental** (no platform limit order), read from the
+  share's **own** 5-day chart; take *reasonable* profit (Ecclesiastes 5:10). It still counts as **one
+  trade per day** — you're managing the same name's morning move.
 
 ## 8. Position sizing
 - The account is small for now → use about **half the account** (TradeZero's usable short
@@ -161,9 +176,10 @@ There are **two** distinct ways out — keep them separate.
 ## 11. Governance & evolution
 - "Be what you want the Automatic to be before you make it automatic" — master the discipline
   manually and faithfully before trusting it to automation.
-- For **now**: short-only, strict criteria, profit only from clean setups.
-- **Later**, with more experience and confidence: extend the playbook (e.g., also go **long** when a
-  name is clearly going up) and refine any rule — provided the change reliably increases profit.
+- Short remains the **primary** side; the long side is now **active via the spring bounce (§7)** — buying
+  the rebound off the by-principle low. Keep selection strict; profit only from clean setups.
+- **Keep evolving** with experience and confidence — refine any rule, provided the change reliably
+  increases profit (and validate it with the setup/execution tracking in `SCHEMA.md`).
 - This account's guiding context, in the owner's words:
   - "He who loves money will not be satisfied with money." — Ecclesiastes 5:10
   - "Look carefully then how you walk… making the best use of the time, because the days are evil." — Ephesians 5:15–16
@@ -183,6 +199,8 @@ There are **two** distinct ways out — keep them separate.
   target; earlier flushes are confirmation.
 - **Black swan** — an irrational, extreme move (≈ +1000%+).
 - **Sympathy stocks** — names that move because a related/leading stock is moving, not on their own news.
+- **Spring bounce** — the up-leg rebound after the short's by-principle low reverses (released elastic energy); traded LONG up to the original market-open price. See §7.
+- **High-limit-by-principle** — the LONG mirror of the by-principle low: the original market-open price, where you sell the spring-bounce long. A mental target, not a platform order.
 
 _Provenance: built from the "JesseG TRADING" note (text + 10 chart images) plus a screen-recording of
 the owner's chat with JesseG (reviewed 2026-06-04). That chat confirmed the criteria working 3 times —
