@@ -147,8 +147,15 @@ There are **two** distinct ways out — keep them separate.
   trade per day** — you're managing the same name's morning move.
 
 ## 8. Position sizing
-- **Size to optimize the _time_ of growth** — that is the governing factor. Not "as big as possible,"
-  not "as safe as possible," but whatever grows the account fastest **for its current size.**
+- **Governing principle — balance growth speed against _reparation time._** Size and risk so the account
+  grows as fast as possible **while never risking a loss that would take too long to repair.** The sweet
+  spot is the most growth you can press *without* putting too much reparation time at stake — not simply
+  "grow fastest," and not "play safest." (The size-vs-account-size rules below all follow from this.)
+- **Cap the day's loss to about _one day of maximum profit potential._** Place the stop / upper limit (§6)
+  so the worst a bad day costs is roughly what a best day could make — every loss stays bounded and recoverable.
+- **A loss costs more _time_ than it looks.** You rarely capture the daily max, so repairing a one-max-day
+  loss usually takes several real days (e.g. a ~$70 loss repaired over ~3 days: +$40, then +$28…). That gap
+  is exactly why the cap matters — a loss is more expensive in time than in dollars.
 - **When the setup meets every criterion _and clears the minimums with room to spare_, use the maximum
   size the account allows.** A strong, clean setup earns full size; a marginal one does not (the size is
   justified by the ~80% edge, nothing else).

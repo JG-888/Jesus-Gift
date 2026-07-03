@@ -111,7 +111,9 @@ spring_bounce:
 
 # --- POSITION SIZING ---
 sizing:
-  govern_by: optimize_time_of_growth   # THE factor: size for the FASTEST growth at the account's CURRENT size (not max-possible, not max-safe)
+  govern_by: "balance growth-speed vs REPARATION-TIME"  # size/risk for FASTEST growth WITHOUT risking a loss that takes too long to repair (not max-growth alone, not max-safe)
+  max_loss_per_day: "~one day of MAXIMUM profit potential"  # set the stop/upper limit (§6) so a bad day costs at most ~one best-day's profit -> loss stays bounded & recoverable
+  reparation_time_reality: "you rarely capture the daily max, so a one-max-day loss takes SEVERAL real days to repair (e.g. -$70 -> +$40 -> +$28 ~= 3 days) -- a loss costs more TIME than $, hence the cap"
   strong_setup_uses_max_size: true     # meets ALL criteria AND clears the minimums with room -> use MAX size; marginal setups do NOT (size justified by the ~80% edge)
   small_account_fraction: 0.5          # SMALL account -> MAX size / MAX risk (~half; TradeZero's usable short buying-power cap). A small loss is easily re-saved from a minimum-wage job, so press the edge hard while the downside is cheap.
   taper_as_account_grows: true         # BIGGER account -> SMALLER fraction per trade: you can't re-earn $100k quickly from a job, so protect progress measured in TIME
