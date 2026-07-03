@@ -236,6 +236,11 @@ There are **two** distinct ways out — keep them separate.
 - **BQ:** ~3M float; 49M vol / +234% Mon 9/29; dropped at 9:30 on 9/30.
 - **YCBD:** ~3M float; 198M vol / +127% Mon 9/29; dropped ~20% on 9/30.
 
+**Annotated reference charts** live in the `reference/` folder (repo root) — the support/resistance
+diagram, EQ (daily + 1-min short entry), AGMH (a real open drop), and the **JFB / BQ 5-day views**
+(the multi-day setup). Being multimodal, load them to recognize the mountain → roll-over → drop shape
+and the multi-day watchlist pattern **visually.**
+
 ## 13. Glossary
 - **Low-hanging fruit** — the **clearer** form of the momentum-shift criterion: the parabola's correction completed during the prior market day, so the stock opens **red** and keeps dropping. (A not-yet-red stock still mid-downfall also satisfies that criterion — see §4 — but isn't called low-hanging fruit.)
 - **Impatience fall** — a morning flush where holders give up (~9:50 / 10:00 / 10:30 ET, approximate —
