@@ -31,7 +31,18 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
    closed, and the current pre-market in one frame. Look for the parabolic arc ("n" / inverted-U) that
    was already rolling over into the close — that rollover is the momentum shift that signals a
    continued drop at the open. Confirm float again under Summary → Statistics → Share Statistics → Float.
-4. Keep only names that satisfy the required criteria in §4 and have a clear resistance level for risk.
+4. **Read the watchlist (`memory/watchlist.jsonl`) too** — names carried over from earlier days. Any
+   watched name that has **now clearly rolled over** (the §4 momentum shift) is a live candidate today,
+   even if it has dropped off finviz.
+5. **Watch, don't discard.** A name up 100%+ on big volume/float that **hasn't yet clearly rolled over** is
+   not a "no" — **add it to the watchlist** and track it up to **3 days** (Jesse tracked many). When the
+   roll-over wasn't clear on day 1, the price often still corrects a little (irregularly); the clean **first
+   red day** usually lands the next day, dropping as expected but **more tamed** than the day before — and
+   even the day *after* a good drop can offer another, smaller one. Judge each day on the **Yahoo 5-day
+   view**: is there still inverted-parabola correction left to profit from? Prune after 3 days.
+6. Keep only names meeting the required criteria (§4) with a clear resistance for risk — then from **all**
+   candidates today (fresh gainers **and** "ready" watchlist names), **trade only the single best one**:
+   cleanest roll-over, biggest expected drop, clearest resistance = lowest risk. One trade per day; pick the best.
 
 > **Timeframes:** selection (steps 1–4) is done on **daily** charts (and Yahoo's 5-day view). Once you're
 > trading, all intraday timing — entry, the small pop, the impatience flushes, and the cover — is read on
@@ -206,12 +217,12 @@ There are **two** distinct ways out — keep them separate.
 - A **halt is not a forced exit** (see §6): JesseG trades through them; early on, strongly consider
   banking profit on a halt since it tends to kill momentum.
 
-## 11. Governance & evolution
+## 11. Governance & development
 - "Be what you want the Automatic to be before you make it automatic" — master the discipline
   manually and faithfully before trusting it to automation.
 - Short remains the **primary** side; the long side is now **active via the spring bounce (§7)** — buying
   the rebound off the by-principle low. Keep selection strict; profit only from clean setups.
-- **Keep evolving** with experience and confidence — refine any rule, provided the change reliably
+- **Keep developing it** with experience and confidence — refine any rule, provided the change reliably
   increases profit (and validate it with the setup/execution tracking in `SCHEMA.md`).
 - This account's guiding context, in the owner's words:
   - "He who loves money will not be satisfied with money." — Ecclesiastes 5:10
@@ -234,6 +245,8 @@ There are **two** distinct ways out — keep them separate.
 - **Sympathy stocks** — names that move because a related/leading stock is moving, not on their own news.
 - **Spring bounce** — the up-leg rebound after the short's by-principle low reverses (released elastic energy); traded LONG up to the original market-open price. See §7.
 - **High-limit-by-principle** — the LONG mirror of the by-principle low: the original market-open price, where you sell the spring-bounce long. A mental target, not a platform order.
+- **Rolling over** — price stops rising and **curves down at the top** of the mountain — the descending shoulder of an inverted / negative-amplitude parabola (∩). This up-to-down turn *is* the clear change of momentum / first red day.
+- **Watchlist** — names carried across days (`memory/watchlist.jsonl`): spiked 100%+ but not yet clearly rolled over, tracked up to 3 days for the first-red-day drop. Jesse's "folders of companies being analyzed."
 
 _Provenance: built from the "JesseG TRADING" note (text + 10 chart images) plus a screen-recording of
 the owner's chat with JesseG (reviewed 2026-06-04). That chat confirmed the criteria working 3 times —

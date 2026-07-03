@@ -137,3 +137,13 @@ data_sources:
   float: ["knowyourfloat.com", "finance.yahoo.com (Summary>Statistics>Share Statistics>Float)", "finviz.com"]
   chart: "finance.yahoo.com (use the 5-DAY '5D' view)"  # 5D shows the prior day, its close, and current
                                                         # pre-market in one frame; confirm parabola rolling over
+
+# --- WATCHLIST (multi-day tracking, like Jesse's folders) ---
+watchlist:
+  file: "memory/watchlist.jsonl"       # persistent; READ FIRST each run, UPDATE LAST
+  purpose: "carry names across days: spiked 100%+ but NOT yet clearly rolled over -> track for the first-red-day drop"
+  max_days_tracked: 3                   # prune a name once it has been tracked 3 days
+  analyze_on: "yahoo 5-day '5D' view"   # judge if any inverted-parabola correction is left to profit from
+  multi_day_behavior: "day-1 roll-over often unclear (price self-corrects a little, irregularly); the clean FIRST RED DAY usually lands the next day as a more TAMED drop; even the day after a good drop can give another, smaller one -- each later day more tamed"
+  status_values: ["watching", "ready", "traded", "expired"]   # ready = rolled over today = a live candidate
+  pick_single_best: "from ALL candidates today (fresh gainers + 'ready' watchlist names) trade only the ONE best: cleanest roll-over / biggest expected drop / clearest resistance = lowest risk. One trade per day."

@@ -15,6 +15,7 @@ Strategy: **low-float small-cap parabolic short ("first red day")** — see
 | Cold  | `config/rules.md`         | Human | Overwrite (rare) |
 | Hot   | `memory/trades.jsonl`     | Agent | **Append-only** |
 | Hot   | `memory/insights.jsonl`   | Agent | **Append + consolidate** |
+| Hot   | `memory/watchlist.jsonl`  | Agent | **Append + consolidate** |
 | Hot   | `memory/performance.json` | Agent | **Overwrite** (derived) |
 
 Core rules:
@@ -57,6 +58,16 @@ what the old one taught; keep distinct lessons; when unsure, keep both. This is 
 strict append-only and applies to **insights only** — never to the `trades.jsonl` ledger. Record what you
 removed (and why) in the commit message — git history retains the old line if it's ever needed.
 
+## `memory/watchlist.jsonl` — append + consolidate, one JSON object per line
+Multi-day tracking (Jesse's "folders of companies"): names that spiked 100%+ but **haven't clearly rolled
+over yet.** Read it **first** each run; update it **last**. One line per tracked name:
+```json
+{"symbol":"XYZ","spike_date":"<YYYY-MM-DD>","added":"<YYYY-MM-DD>","prior_gain_pct":0.0,"volume_to_float":0.0,"float_shares":0,"pre_spike_base":0.0,"spike_high":0.0,"resistance":0.0,"status":"watching","waiting_for":"clear roll-over / first red day","days_tracked":1,"review_by":"<YYYY-MM-DD>","notes":""}
+```
+- `status` — `watching` (not yet rolled over) · `ready` (rolled over today → a live candidate) · `traded` · `expired`.
+- **Prune once `days_tracked` reaches 3** — the drop tames each day; after ~3 days there's little correction left (judge the inverted-parabola arc on the **Yahoo 5-day view**). Also drop names that already played out.
+- **Consolidate like insights:** one line per name — update it *in place* each day, never stack duplicates.
+
 ## `memory/performance.json` — overwrite, derived snapshot
 Recompute from `trades.jsonl` each run. Keys: `schema_version`, `updated_at`,
 `sessions`, `trades`, `wins`, `losses`, `win_rate`, `profit_factor`,
@@ -78,12 +89,16 @@ plus the three **success measures** below.
 `setup_behaved_as_expected_rate` means the strategy is sound and **execution** is the gap — score them apart.
 
 ## Update order each run
-1. Read `config/*` and `memory/*`.
-2. Trade according to the criteria + rules.
-3. Append each closed trade to `trades.jsonl`.
-4. Append any new learnings to `insights.jsonl`.
-5. Recompute and overwrite `performance.json`.
-6. **Commit and push directly to the `main` branch** — do **NOT** push to a feature branch or open a
+1. Read `config/*` and `memory/*` — **including `watchlist.jsonl`.**
+2. **Build today's candidate pool:** check the watchlist for names that have **now rolled over** (mark them
+   `ready`); scan finviz for fresh 100%+ gainers; add any that **haven't yet rolled over** to the watchlist.
+   From **all** candidates (fresh + `ready`), **trade only the single best** (one trade/day).
+3. Trade according to the criteria + rules (or stand down if nothing qualifies).
+4. Append each closed trade to `trades.jsonl`.
+5. Append any new learnings to `insights.jsonl`.
+6. **Update `watchlist.jsonl`:** mark traded / played-out names, bump `days_tracked`, and **prune anything past 3 days.**
+7. Recompute and overwrite `performance.json`.
+8. **Commit and push directly to the `main` branch** — do **NOT** push to a feature branch or open a
    pull request. The next run reads `main`, so anything left on an unmerged branch is invisible to it
    and the memory stops accumulating. One commit per run is fine; append-only files don't cause merge
    conflicts, so committing straight to `main` is safe.
