@@ -14,11 +14,18 @@ Strategy: **low-float small-cap parabolic short ("first red day")** — see
 | Cold  | `config/strategy.yml`     | Human | Overwrite (rare) |
 | Cold  | `config/rules.md`         | Human | Overwrite (rare) |
 | Hot   | `memory/trades.jsonl`     | Agent | **Append-only** |
-| Hot   | `memory/insights.jsonl`   | Agent | **Append-only** |
+| Hot   | `memory/insights.jsonl`   | Agent | **Append + consolidate** |
 | Hot   | `memory/performance.json` | Agent | **Overwrite** (derived) |
 
 Core rules:
-- **Never** edit or reformat existing lines in an append-only file. Only add new lines at the end.
+- **`trades.jsonl` is a strict append-only ledger** — an immutable factual record. Never edit, reorder,
+  or delete a past trade line; only add new lines at the end.
+- **`insights.jsonl` is append _and consolidate_.** Normally add new lines — but when a new insight
+  **supersedes** an older one (corrects it, or is a strictly more complete version of the *same* lesson),
+  **remove/replace the obsolete line** instead of keeping both, so hot memory doesn't clog with stale
+  duplicates. Only remove when the new line fully preserves what the old one taught; keep genuinely
+  distinct insights; **when in doubt, keep both.** Pull `main` first (consolidate against the current
+  file), and note in the commit message what you removed and why (git history keeps the old line).
 - `performance.json` is **derived** from `trades.jsonl` — recompute it, never hand-edit.
 - `config/` is the single source of truth for numbers. Everything else references it; nothing duplicates values.
 - **Cold memory is principle-only.** `config/rules.md` (plain English) and `config/strategy.yml` hold the
@@ -38,11 +45,17 @@ Append exactly one line per **closed** trade (all trades are shorts for now):
 - `captured_pct` — `pnl / mfe_potential` when a window existed — the **efficiency** (e.g. 0.25, 0.50, 0.90). Booking *any* positive fraction is a successful application.
 - `loss_cause` — if the trade lost or underperformed: `execution` (setup behaved; entry/exit/sizing mistake) · `selection` (shouldn't have been taken — dead_tape / sub-100% / catalyst) · `none`.
 
-## `memory/insights.jsonl` — append-only, one JSON object per line
-Append a line whenever the agent learns something worth keeping (a pattern, an incident, a rule adjustment):
+## `memory/insights.jsonl` — append + consolidate, one JSON object per line
+Add a line whenever the agent learns something worth keeping (a pattern, an incident, a rule adjustment):
 ```json
 {"ts":"<ISO8601>","type":"pattern|incident|adjustment","symbol":"","note":"","evidence":""}
 ```
+**Consolidate as you go (avoid clogging).** If a new insight makes an earlier one **obsolete** — it
+corrects it, or is a more complete version of the *same* lesson — **delete the superseded line(s)** and
+keep only the current one, rather than accumulating both. Do this only when the new line fully preserves
+what the old one taught; keep distinct lessons; when unsure, keep both. This is a deliberate exception to
+strict append-only and applies to **insights only** — never to the `trades.jsonl` ledger. Record what you
+removed (and why) in the commit message — git history retains the old line if it's ever needed.
 
 ## `memory/performance.json` — overwrite, derived snapshot
 Recompute from `trades.jsonl` each run. Keys: `schema_version`, `updated_at`,
