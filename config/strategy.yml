@@ -79,6 +79,9 @@ stop:
                                        # When the initial high-vol stop is far above entry, drop to a
                                        # nearer level (e.g. the intraday day high) for a tighter invalidation.
   fixed_pct: null                      # NOT a fixed percentage; the resistance defines the risk
+  require_real_upper_resistance: true  # only trade if a REAL upper resistance exists to anchor the limit; no resistance -> NO trade (see criteria)
+  avoid_black_swans: true              # skip irrational +1000%+ moves -- they blow through resistance; avoiding them cuts losing chances
+  loss_cap_on_failure: "the upper limit is ALSO the loss cap for the ~20% of setups that FAIL (keeps rising, never drops -- may only confirm later ~12-1pm). Covering there is CORRECT (the strategy's built-in miss rate); loss bounded to ~one day of max profit (see sizing). Do NOT chase or 'repair a wrong'."
   on_market_halt: not_an_auto_exit     # halts are NOT a forced exit -- JesseG trades through them.
                                        # Early on (no agent experience yet), a halt tends to kill
                                        # momentum, so STRONGLY CONSIDER banking any profit already made,

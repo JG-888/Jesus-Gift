@@ -84,6 +84,14 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
   lower support/resistance** — do this on every trade. It progressively cuts risk and locks in profit,
   and when the initial high-volume stop sits far above entry it gives a much tighter, safer invalidation.
 - Risk is defined by **the resistance level, not a fixed percentage.**
+- **The upper limit is also your loss cap for the ~20% of setups that fail.** Sometimes a name just keeps
+  rising and never drops — a failure you may only confirm later (checking back at ~12–1 pm, well after the
+  9:30–11:30 window). Covering at the upper limit on those is **correct, not a mistake**: it's the
+  strategy's built-in miss rate (the ~20% that don't work), and the loss stays bounded to ~one day of max
+  profit (§8). Take the capped loss and move on — don't chase it or try to "repair a wrong" (§10).
+- **Only take the trade if a real upper resistance exists to anchor the limit** — no resistance, no safe
+  place for the stop, so **no trade** (see §4). And **avoid black swans** (irrational +1000%+ moves): they
+  blow through resistance and are exactly the losing chances this discipline exists to cut.
 - **A market halt/hold is NOT a forced exit.** JesseG has traded through halts profitably, so don't
   treat one as an automatic stop. But a halt tends to **kill momentum**, so **early on — before the
   agent has built its own experience — strongly consider banking any profit already made on a halt,
