@@ -97,10 +97,16 @@ There are **two** distinct ways out — keep them separate.
 **(a) The by-principle lower limit — your reasonable profit target.**
 - Hold a lower limit **"by principle"**: a price kept **in your head, NOT a limit order on the platform.**
   Never place a platform lower-limit order — keeping it mental keeps you in control and never caps the move.
-- Set it at the **lowest place you reasonably expect _this_ share to reach**, judged from **its own chart**
-  and your experience with it — usually low, but still **above the pre-spike base** (its price before the
-  spike that built the mountain/parabola). Read it from the share's **own** chart on the **Yahoo Finance
-  5-day ("5D") general view** (the same chart used for selection in §3) — never another share's chart.
+- Set it at the **lowest place you reasonably expect _this_ share to reach** — it usually sits **between
+  the pre-spike base** (its price before the spike that built the mountain/parabola) **and the 9:30
+  market-open entry price.** Read it from the share's **own** **Yahoo Finance 5-day ("5D") general view**
+  (the same chart used for selection in §3), never another share's. An **initial** placement clue is a
+  level that looks like it will draw **a lot of support.**
+- **It targets the _actual_ lowest point, so keep adjusting it as the trade behaves after 9:30 — the
+  impatience flushes are the real lows.** Use them to correct your estimate: if the **first** flush drops
+  to **just above** your limit, the limit is likely right (the **next** flush should reach it); if the
+  first flush **stops well above** it (the low came in much higher than you guessed), be realistic and
+  **raise** the by-principle low to match — don't wait for a low that won't come.
 - It is the point where the share **stops dropping but does not reverse.** When price reaches (or dips
   below) your by-principle low **and stalls there without reversing, take the profit** — be *reasonable,
   not greedy* (Ecclesiastes 5:10); don't hold out for a theoretical lower low that may never come.
