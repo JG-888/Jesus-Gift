@@ -147,12 +147,24 @@ There are **two** distinct ways out — keep them separate.
   trade per day** — you're managing the same name's morning move.
 
 ## 8. Position sizing
-- The account is small for now → use about **half the account** (TradeZero's usable short
-  buying power is ~half of capital).
-- Shares are borrowed in **lots of 100**; borrowing costs a small fee, so borrow only what you can
-  actually use — don't over-borrow.
-- Size up like this **only when the required criteria are met** — the size is justified by the
-  strategy's ~80% edge, nothing else.
+- **Size to optimize the _time_ of growth** — that is the governing factor. Not "as big as possible,"
+  not "as safe as possible," but whatever grows the account fastest **for its current size.**
+- **When the setup meets every criterion _and clears the minimums with room to spare_, use the maximum
+  size the account allows.** A strong, clean setup earns full size; a marginal one does not (the size is
+  justified by the ~80% edge, nothing else).
+- **Small account → maximum size / maximum risk.** For now that's about **half the account** (TradeZero's
+  usable short buying power caps you there). Reasoning: if a small stake is lost, the initial capital is
+  **easily replaced by saving from a minimum-wage job** — so press the edge hard while the downside is
+  cheap to recover.
+- **As the account grows, taper the fraction down** — to protect **progress measured in time.** You can't
+  re-earn $100,000 quickly from a minimum-wage job, so a large account risks a *smaller* slice per trade
+  to avoid giving back years of growth.
+- **But don't shrink it too far** — too small a size makes growth crawl. The right size is the **balance
+  point** that keeps compounding fast without risking hard-won progress.
+- **Watch your own market impact on big share counts.** Large share volumes can move the tape, widen
+  slippage, trip price-band / max-notional limits, and cause partial or double fills — size and route with
+  that in mind, not just the dollar amount.
+- Shares are borrowed in **lots of 100**; borrowing costs a small fee, so borrow only what you'll use.
 
 ## 9. Capital management
 - Pay yourself **50%** of profits; reinvest **50%** to grow the account.

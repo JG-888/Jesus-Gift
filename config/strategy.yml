@@ -111,10 +111,13 @@ spring_bounce:
 
 # --- POSITION SIZING ---
 sizing:
-  account_fraction: 0.5                # use ~half the account (broker buying-power limited)
-  share_lot_size: 100                  # shares are borrowed in lots of 100
-  only_when_required_criteria_met: true # size up only because the criteria give the ~80% edge
-  rationale: "TradeZero gives ~half of capital as usable short buying power; borrow only what you can use (avoid extra borrow fees)"
+  govern_by: optimize_time_of_growth   # THE factor: size for the FASTEST growth at the account's CURRENT size (not max-possible, not max-safe)
+  strong_setup_uses_max_size: true     # meets ALL criteria AND clears the minimums with room -> use MAX size; marginal setups do NOT (size justified by the ~80% edge)
+  small_account_fraction: 0.5          # SMALL account -> MAX size / MAX risk (~half; TradeZero's usable short buying-power cap). A small loss is easily re-saved from a minimum-wage job, so press the edge hard while the downside is cheap.
+  taper_as_account_grows: true         # BIGGER account -> SMALLER fraction per trade: you can't re-earn $100k quickly from a job, so protect progress measured in TIME
+  do_not_undersize: true               # but not so small that growth crawls -- the right size is the balance point
+  watch_market_impact: "large share counts can move the tape, widen slippage, trip price-band / max-notional limits, and cause partial/double fills -- size & route with that in mind, not just the $ amount"
+  share_lot_size: 100                  # shares borrowed in lots of 100; borrow only what you'll use (avoid extra fees)
 
 # --- CAPITAL MANAGEMENT ---
 capital:
