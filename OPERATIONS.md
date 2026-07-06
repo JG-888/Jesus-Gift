@@ -13,10 +13,17 @@ written (or corrected) **here**, so future runs don't have to re-derive it.
 next-morning digest, never silence.
 
 **Why this recipe:** the agent acts as the owner's own ClickUp account, and ClickUp never sends
-instant notifications for your *own* actions — so creating the task alone emails nobody. The one
-trigger that works on this plan is the **due-time reminder**: a task with a due date **+ time**
-fires a notification at that time. A **date-only** due date instead lands in the ~7 AM next-day
-digest (that was the "late" failure), and a missing due date sends nothing (the "never" failure).
+instant notifications for your *own* actions — so creating the task alone emails nobody, no matter
+what "Task activity" triggers are on. The one trigger that works is **time-based, not action-based**:
+a task with a due date **+ time** fires a due-date notification at that time. A **date-only** due
+date instead lands in the ~7 AM next-day digest (that was the "late" failure), and a missing due
+date sends nothing (the "never" failure).
+
+**⚠️ Precondition (owner-side, one-time — the agent CANNOT set this via API):** in ClickUp
+**Settings → Notifications → Email (Custom)**, the **"Start & Due Dates"** trigger section must be
+**enabled** (it ships disabled — that was the root cause of every silent failure). Deliverability
+can be sanity-checked anytime with the **"Send test notification"** button on the Email row. If
+summaries ever go silent again, check this setting **first**.
 
 **Procedure — after the last position is closed and memory is pushed:**
 1. Create the daily summary task in **Jesus' Gift → Agenda** (list id `901416729887`):
@@ -32,8 +39,10 @@ digest (that was the "late" failure), and a missing due date sends nothing (the 
 3. On a **no-trade day**, still send the summary (what was scanned, why stood down, watchlist
    changes) with the same due-time recipe. Silence is indistinguishable from failure.
 
-**Known-good example:** task `86babygf6` (2026-06-08 SPHL summary). Immediate-notification test
-tasks validated the due-time trigger (`86baddx4j`, `86bat7rjw`).
+**Validated end-to-end 2026-07-06:** with "Start & Due Dates" email triggers enabled, a task
+created 6:58 PM ET with due time 7:02 PM **emailed the owner at 7:03 PM** (task `86bat8qfv`).
+Earlier tests without that setting never emailed — the recipe only works with the precondition
+above. Known-good summary format: task `86babygf6` (2026-06-08 SPHL).
 
 ## 2. ClickUp API reliability
 
