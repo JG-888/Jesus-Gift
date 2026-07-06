@@ -13,6 +13,7 @@ Strategy: **low-float small-cap parabolic short ("first red day")** — see
 |-------|------|-----------|-------------|
 | Cold  | `config/strategy.yml`     | Human | Overwrite (rare) |
 | Cold  | `config/rules.md`         | Human | Overwrite (rare) |
+| Ops   | `OPERATIONS.md`           | Human + Agent (proven fixes) | Overwrite (keep lean) |
 | Hot   | `memory/trades.jsonl`     | Agent | **Append-only** |
 | Hot   | `memory/insights.jsonl`   | Agent | **Append + consolidate** |
 | Hot   | `memory/watchlist.jsonl`  | Agent | **Append + consolidate** |
@@ -89,7 +90,7 @@ plus the three **success measures** below.
 `setup_behaved_as_expected_rate` means the strategy is sound and **execution** is the gap — score them apart.
 
 ## Update order each run
-1. Read `config/*` and `memory/*` — **including `watchlist.jsonl`.**
+1. Read `config/*`, `OPERATIONS.md` (the runbook), and `memory/*` — **including `watchlist.jsonl`.**
 2. **Build today's candidate pool:** check the watchlist for names that have **now rolled over** (mark them
    `ready`); scan finviz for fresh 100%+ gainers; add any that **haven't yet rolled over** to the watchlist.
    From **all** candidates (fresh + `ready`), **trade only the single best** (one trade/day).
@@ -102,6 +103,10 @@ plus the three **success measures** below.
    pull request. The next run reads `main`, so anything left on an unmerged branch is invisible to it
    and the memory stops accumulating. One commit per run is fine; append-only files don't cause merge
    conflicts, so committing straight to `main` is safe.
+9. **Publish the daily summary to ClickUp with an IMMEDIATE email** — follow `OPERATIONS.md` §1
+   exactly: summary task in *Agenda*, assigned to the owner, **due date WITH a time 5–10 minutes
+   out (ET)** — never date-only, never omitted; verify the task was created; retry per §2. Send it
+   on **no-trade days too** — silence is indistinguishable from failure.
 
 > **⚠️ Critical — read from and write to `main`.** `main` is the single source of truth the agent reads
 > every run. Always pull `main` at the start and push back to `main` at the end. If the runtime can only
