@@ -28,8 +28,20 @@ summaries ever go silent again, check this setting **first**.
 **Procedure — after the last position is closed and memory is pushed:**
 1. Create the daily summary task in **Jesus' Gift → Agenda** (list id `901416729887`):
    - `name`: `Trading Day Summary — YYYY-MM-DD (Day): SYMBOL side, net ±$X (n trades, xW/yL)`
-   - `description`: the full session writeup (setup, entry, exits, discipline, why win/loss,
-     memory files updated) — same format as prior summaries.
+   - `description`: the full session writeup. Besides the basics (date, name traded or no-trade,
+     profit/loss), it **must contain these three sections** — the owner reads this email as the
+     record of the day:
+     1. **Pre-market scan** — the candidates considered (fresh gainers + watchlist), each with its
+        key numbers, and **why the traded one was chosen over the others** (or why all were
+        rejected on a no-trade day).
+     2. **The story of the trade** — a narrative of what happened while trading, in order, with
+        the **size and time (ET) of every entry and every exit** (shorts, covers, spring-bounce
+        legs), the stops/limits as they moved, and what the tape did in between (flushes, pops,
+        halts).
+     3. **Honest conclusion & insights** — what the result really was and why: setup quality vs
+        execution quality, what was captured vs what was available, the cause of any loss, and
+        what (if anything) was learned or should change. Honest means honest — no dressing up a
+        mistake, no burying a lucky win.
    - `assignees`: `["210189122"]` (the owner)
    - **`due_date`: today's date WITH a time 5–10 minutes in the future, ET** (e.g. session ends
      10:47 → due `YYYY-MM-DD 10:55`). This is the line that makes the email immediate.
