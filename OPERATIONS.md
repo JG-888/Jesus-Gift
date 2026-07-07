@@ -66,6 +66,29 @@ above. Known-good summary format: task `86babygf6` (2026-06-08 SPHL).
 
 ## 3. TradeZero API quirks (validated live)
 
+**API contract (reverse-engineered & validated live 2026-07-07 — record so no future run re-derives it):**
+- Base `https://webapi.tradezero.com` (paper + live share it; the key pair picks the env). Behind a
+  **KrakenD** gateway. Auth = two headers on every request: `TZ-API-KEY-ID: $TRADING_API_KEY` and
+  `TZ-API-SECRET-KEY: $TRADING_API_SECRET`. Paper account id = **`TZP5320F`**.
+- **Responses are gzip** — use `curl --compressed` or you get binary. GET is clean JSON.
+- **Place order:** `POST /v1/api/accounts/{acct}/order` (**singular `order`**; plural 404s). Body:
+  `{"symbol","side","orderType","orderQuantity","limitPrice","securityType":"Stock","timeInForce":"Day","clientOrderId"}`.
+  - `side`: only **`"Buy"` / `"Sell"`** (NOT "Short"/"Cover"). Selling with no long auto-becomes
+    **`SellShort`** (opens a short); Buying against a short covers. `openClose` is auto-set.
+  - `orderType`: `Limit` | `Market` | `Stop` | `StopLimit`. `Market` → omit `limitPrice`.
+  - `securityType`: `Stock` | `Option` | `Mleg` (required). `timeInForce`: `Day` | `GoodTillCancel` |
+    `AtTheOpening` | `ImmediateOrCancel` | `FillOrKill` | `GoodTillCrossing` | `Day_Plus` | `GTC_Plus`.
+  - **KrakenD error decoding:** a wrong ENUM returns a clean JSON `- field: must be one of ...` (400).
+    Valid enums but `invalid character '<' looking for beginning of value` (400, `x-krakend-completed: false`)
+    = a WRONG FIELD NAME (e.g. `quantity` instead of `orderQuantity`) — the backend returned an HTML error
+    KrakenD couldn't parse. Fix the field name, not the values.
+- **Cancel:** `DELETE /v1/api/accounts/{acct}/orders/{clientOrderId}` (plural `orders`).
+- **Reads:** `GET /v1/api/accounts` (cash/equity), `.../{acct}/positions`, `.../{acct}/orders`,
+  `.../{acct}/order/{clientOrderId}`, `.../{acct}/locates/inventory`. A helper lives at
+  `scratchpad/tz.sh` (short|cover|status|orders|order|cancel) — re-create it per run (scratchpad is ephemeral).
+- **Pre-flight** every run with a non-fillable order (Buy Limit far BELOW market, qty 1) then cancel it —
+  proves write+cancel before the open. Paper shorts need **no locate** (`locateInventory` is empty; a plain
+  `Sell` still fills as `SellShort`).
 - Order body **requires** `securityType: "Stock"` (else 400).
 - Orders placed **during a LULD halt are REJECTED, not queued** — re-place on the live reopen;
   a marketable limit far through the market can be **price-band rejected**; a plain market order
@@ -85,6 +108,19 @@ above. Known-good summary format: task `86babygf6` (2026-06-08 SPHL).
 - Float: knowyourfloat.com + finviz + Yahoo (average, drop outliers — see `config/rules.md` §3).
 - If the broker quote feed is frozen/stale (no live tape), **stand down** — no tape, no trade
   (2026-06-29).
+- **Finnhub reality (validated 2026-07-07):** the key's plan has **NO candle access** — `/stock/candle`
+  returns 403. So the "1-min chart" = **poll `/quote` every ~12-15s** (fields `c/o/h/l/pc/t`; `t` advances
+  on each RTH trade). It gives current + running session high/low but **not per-minute OHLC or volume**,
+  and it is **stale/frozen pre-market** (`t` stays at the prior close until 09:30 RTH prints). Detect the
+  open by `t` advancing. `/stock/market-status?exchange=US` gives `isOpen`/`holiday`/`session` (used to
+  confirm a non-holiday trading day). `/stock/profile2` gives `floatingShare` + `shareOutstanding` (float).
+- **Prior-day gainers & OHLC without finviz:** `api.nasdaq.com/api/screener/stocks?...&download=true`
+  (UA + `Accept: application/json`) ranks by `pctchange`; `api.nasdaq.com/api/quote/{sym}/historical`
+  gives daily OHLCV (base, spike, resistance, roll-over). Right after the open, Finnhub `/quote` still
+  reports the PRIOR session's o/h/l/c (pre-RTH), handy for confirming the spike-day shape.
+- **Perplexity caveat (2026-07-07):** it is **unreliable for exact single-day gainer data** for a specific
+  recent date (returned "no 100%+ gainers" for a day that clearly had them). Use it for **catalyst/context
+  and API-doc lookups**, NOT as the gainer scanner — drive selection off the market-data APIs above.
 
 ---
 *Update rule: agent reads every run; proven fixes get edited into this file (overwrite, keep it
