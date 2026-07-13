@@ -21,6 +21,9 @@ __pycache__/
 node_modules/
 .DS_Store
 
+# Ephemeral per-run working dir (helper scripts, tape logs) — never committed
+scratchpad/
+
 # IDE
 .vscode/
 .idea/
