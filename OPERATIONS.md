@@ -93,6 +93,14 @@ above. Known-good summary format: task `86babygf6` (2026-06-08 SPHL).
 - Orders placed **during a LULD halt are REJECTED, not queued** — re-place on the live reopen;
   a marketable limit far through the market can be **price-band rejected**; a plain market order
   on a live reopen fills.
+- **Stop orders:** `orderType:"Stop"` takes the trigger in field **`stopPrice`** (NOT `priceStop` —
+  that returns `R24: Your order cannot have a STOP price of Zero`; validated 2026-07-14). `StopLimit`
+  adds `limitPrice`. **But a Stop, like any order, is REJECTED while the symbol is LULD-halted**
+  (`S02: … currently halted`) — you **cannot pre-arm a protective stop during a halt**, and halt-prone
+  micro-floats halt exactly when you want one. So on ultra-micro squeezers, manage the stop **manually**
+  and **cover MARKETABLE on the live reopen**: a resting cover-**LIMIT** gets stranded if the reopen gaps
+  through it (VEEE 2026-07-14: a 21.30 cover-limit was left behind as the reopen ran 21.72→23.33 → had to
+  cancel it and MARKET-cover; cf. the PLSM stranded-limit loss).
 - **Cover-fill lag:** after a cover fills, the `/positions` endpoint lags — **verify by FILLS
   (order `priceAvg` × qty), not by positions**, before sending another order (prevents the
   double-fill bug of 2026-06-08/16).
