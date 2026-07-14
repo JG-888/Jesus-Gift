@@ -31,7 +31,7 @@ criteria:
                                        # NOT limited to literally "red" -- see momentum_shift_forms below.
                                        # Do NOT reject a candidate just because it is not literally red.
   momentum_shift_forms:
-    red_on_day: "parabola FULLY corrected during the PRIOR market day -> opens RED vs yesterday and keeps dropping (the clearer 'low-hanging fruit' case)"
+    red_on_day: "parabola ROLLED OVER and began correcting during the PRIOR market day -> opens RED vs yesterday and keeps dropping, a bit less intensely; the correction is NOT yet finished (not flattened on the 5-day view) so profit remains (the clearer 'low-hanging fruit' case; a FULLY corrected/flattened chart is the separate lower-odds note below)"
     mid_downfall_not_yet_red: "UNFINISHED parabola still completing its down curve, continuing to drop into/after the 09:30 open; not red yet but momentum clearly shifted -> VALID (not called 'low-hanging fruit')"
   require_resistance_level: true       # a prior high-volume resistance must exist (anchors the stop)
   prefer_parabola_arc: true            # an "n"/inverted-U rolling over into the close is the STRONGEST setup
@@ -142,7 +142,7 @@ data_sources:
 watchlist:
   file: "memory/watchlist.jsonl"       # persistent; READ FIRST each run, UPDATE LAST
   purpose: "carry names across days: spiked 100%+ but NOT yet clearly rolled over -> track for the first-red-day drop"
-  max_days_tracked: 3                   # prune a name once it has been tracked 3 days
+  max_days_tracked: 3                   # OPEN-MARKET days (trading sessions): the day first seen = day 1; weekends/holidays don't count
   analyze_on: "yahoo 5-day '5D' view"   # judge if any inverted-parabola correction is left to profit from
   multi_day_behavior: "day-1 roll-over often unclear (price self-corrects a little, irregularly); the clean FIRST RED DAY usually lands the next day as a more TAMED drop; even the day after a good drop can give another, smaller one -- each later day more tamed"
   status_values: ["watching", "ready", "traded", "expired"]   # ready = rolled over today = a live candidate

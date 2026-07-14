@@ -66,7 +66,7 @@ over yet.** Read it **first** each run; update it **last**. One line per tracked
 {"symbol":"XYZ","spike_date":"<YYYY-MM-DD>","added":"<YYYY-MM-DD>","prior_gain_pct":0.0,"volume_to_float":0.0,"float_shares":0,"pre_spike_base":0.0,"spike_high":0.0,"resistance":0.0,"status":"watching","waiting_for":"clear roll-over / first red day","days_tracked":1,"review_by":"<YYYY-MM-DD>","notes":""}
 ```
 - `status` — `watching` (not yet rolled over) · `ready` (rolled over today → a live candidate) · `traded` · `expired`.
-- **Prune once `days_tracked` reaches 3** — the drop tames each day; after ~3 days there's little correction left (judge the inverted-parabola arc on the **Yahoo 5-day view**). Also drop names that already played out.
+- **Prune once `days_tracked` reaches 3.** `days_tracked` counts **open-market days only** (the trading session it was first seen = day 1; weekends/holidays don't count). The drop tames each market day; after ~3 there's little correction left (judge the inverted-parabola arc on the **Yahoo 5-day view**). Also drop names that already played out.
 - **Consolidate like insights:** one line per name — update it *in place* each day, never stack duplicates.
 
 ## `memory/performance.json` — overwrite, derived snapshot
@@ -97,7 +97,7 @@ plus the three **success measures** below.
 3. Trade according to the criteria + rules (or stand down if nothing qualifies).
 4. Append each closed trade to `trades.jsonl`.
 5. Append any new learnings to `insights.jsonl`.
-6. **Update `watchlist.jsonl`:** mark traded / played-out names, bump `days_tracked`, and **prune anything past 3 days.**
+6. **Update `watchlist.jsonl`:** mark traded / played-out names, bump `days_tracked` (open-market days only), and **prune anything past 3 market days.**
 7. Recompute and overwrite `performance.json`.
 8. **Commit and push directly to the `main` branch** — do **NOT** push to a feature branch or open a
    pull request. The next run reads `main`, so anything left on an unmerged branch is invisible to it

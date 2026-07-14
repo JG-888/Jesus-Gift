@@ -35,11 +35,12 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
    watched name that has **now clearly rolled over** (the §4 momentum shift) is a live candidate today,
    even if it has dropped off finviz.
 5. **Watch, don't discard.** A name up 100%+ on big volume/float that **hasn't yet clearly rolled over** is
-   not a "no" — **add it to the watchlist** and track it up to **3 days** (Jesse tracked many). When the
+   not a "no" — **add it to the watchlist** and track it up to **3 open-market days** (trading sessions —
+   the day it was first seen counts as day 1; weekends and holidays don't count. Jesse tracked many). When the
    roll-over wasn't clear on day 1, the price often still corrects a little (irregularly); the clean **first
    red day** usually lands the next day, dropping as expected but **more tamed** than the day before — and
    even the day *after* a good drop can offer another, smaller one. Judge each day on the **Yahoo 5-day
-   view**: is there still inverted-parabola correction left to profit from? Prune after 3 days.
+   view**: is there still inverted-parabola correction left to profit from? Prune after its 3rd market day.
 6. Keep only names meeting the required criteria (§4) with a clear resistance for risk — then from **all**
    candidates today (fresh gainers **and** "ready" watchlist names), **trade only the single best one**:
    cleanest roll-over, biggest expected drop, clearest resistance = lowest risk. One trade per day; pick the best.
@@ -54,9 +55,11 @@ overhead **resistance** — which is both *why* the stock falls and *where* we a
 - [ ] Price above $0.50 (TradeZero cannot short cheaper).
 - [ ] **A clear change of momentum (the price is correcting / rolling over).** This does **NOT**
       require the stock to be *literally red*. It is satisfied by **either** form:
-      - **(a) Red on the day** — the parabola's full correction already happened during the **prior
+      - **(a) Red on the day** — the parabola **rolled over and began its correction during the prior
         market day**, so it opens **red vs. yesterday** and keeps dropping (a bit less intensely). The
-        clearer case — the true **"low-hanging fruit."**
+        correction is **not finished** — the shape hasn't flattened on the Yahoo 5-day view, so there is
+        still profit to take. The clearer case — the true **"low-hanging fruit."** (A chart that *has*
+        fully corrected/flattened is the different, lower-odds case in the last bullet below.)
       - **(b) Mid-downfall, not yet red** — an **unfinished** parabola still completing its down curve,
         continuing to drop **into / after the 09:30 open** (this was **STI**). Momentum has clearly
         shifted and the price is correcting, so it **qualifies** even though it isn't red yet (not called
@@ -242,7 +245,7 @@ diagram, EQ (daily + 1-min short entry), AGMH (a real open drop), and the **JFB 
 and the multi-day watchlist pattern **visually.**
 
 ## 13. Glossary
-- **Low-hanging fruit** — the **clearer** form of the momentum-shift criterion: the parabola's correction completed during the prior market day, so the stock opens **red** and keeps dropping. (A not-yet-red stock still mid-downfall also satisfies that criterion — see §4 — but isn't called low-hanging fruit.)
+- **Low-hanging fruit** — the **clearer** form of the momentum-shift criterion: the parabola rolled over during the prior market day, so the stock opens **red** and keeps dropping — with the correction **still unfinished** (not yet flattened on the 5-day view), so profit remains. (A not-yet-red stock still mid-downfall also satisfies that criterion — see §4 — but isn't called low-hanging fruit.)
 - **Impatience fall** — a morning flush where holders give up (~9:50 / 10:00 / 10:30 ET, approximate —
   ~5–15 min either side). The **last** one (around 10:30) is typically the lowest point and our cover
   target; earlier flushes are confirmation.
