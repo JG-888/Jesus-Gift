@@ -101,6 +101,10 @@ above. Known-good summary format: task `86babygf6` (2026-06-08 SPHL).
   and **cover MARKETABLE on the live reopen**: a resting cover-**LIMIT** gets stranded if the reopen gaps
   through it (VEEE 2026-07-14: a 21.30 cover-limit was left behind as the reopen ran 21.72→23.33 → had to
   cancel it and MARKET-cover; cf. the PLSM stranded-limit loss).
+- **Bound cover slippage with a MARKETABLE LIMIT** (priced a few cents through the market), not a naked
+  `Market` order, when the tape is **not** gapping — a naked market on thin/dead tape catches a local high
+  (NXTC 2026-07-15: market cover 6.05 vs 5.93 last ≈ $960 slippage). The halt-reopen exception above still
+  holds: when a reopen is **gapping** through a resting limit, use marketable/market to guarantee the fill.
 - **Cover-fill lag:** after a cover fills, the `/positions` endpoint lags — **verify by FILLS
   (order `priceAvg` × qty), not by positions**, before sending another order (prevents the
   double-fill bug of 2026-06-08/16).
