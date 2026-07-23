@@ -111,6 +111,24 @@ above. Known-good summary format: task `86babygf6` (2026-06-08 SPHL).
 - Paper-account P&L fields may not post intraday — authoritative session P&L = the fills.
 - Short-sale-restricted (SSR) names: shorts must be entered on an uptick — static limits left
   below the market suffer adverse selection at the open.
+- **⚠️ Brand-new micro-float symbols can be UNFILLABLE in TZ paper (validated 2026-07-23, ZCMD).**
+  The paper sim had **no market-data feed** for ZCMD (its first big spike was the prior day 7/22), so
+  **every** order — Limit *and* Market, any size incl. a 100-share test clip — sat at `PendingNew`
+  forever and **never filled**; `/positions` stayed flat. Worse, `DELETE /orders/{coid}` on a
+  `PendingNew` order returns **`Not found`** (un-cancelable — it was never acknowledged onto the book),
+  so the stuck orders can't be cleared. Liquid names (AAPL) accept/rest/cancel normally. **Lesson: the
+  pre-flight must PROVE the sim can trade the ACTUAL target symbol, not just AAPL** — send a tiny
+  100-share **market** clip on the target pre-open; if it doesn't fill within ~15s (stays `PendingNew`),
+  the symbol is untradeable in paper → **treat as "no broker tape → stand down"** (§4) even though
+  external feeds (Finnhub/Nasdaq) show a perfectly live tape. Do a final `/positions` check at EOD in
+  case a stuck order ever fills late, and flatten anything that appears.
+- **`R100: Order would exceed max notional value`** (400/`Rejected`) — a per-order cap that is **NOT a
+  flat dollar amount**: it is **tighter on low-priced/volatile micro-floats**. Validated 2026-07-23:
+  ZCMD **60,000 × $4.10 (~$246k) REJECTED** but **24,000 (~$98k) accepted**; AAPL **1,000 × $325.89
+  (~$325k) accepted**. So a $325k AAPL order passes while a $246k ZCMD order fails — the cap scales down
+  with the name's risk profile, not just notional. **Split large micro-float size into sub-cap tranches**
+  (this does *not* violate the no-"half-then-add" rule — that rule bans the add-at-the-top *technique*,
+  not working around a broker order-size cap).
 
 ## 4. Data-source fallbacks (pre-market scan)
 
